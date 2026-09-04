@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}})();
+  </script>
+  
+  
+  <title>乱七八糟的想法 | 泉的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="此PDF与PPT由千问3.7 和生成,内容是本人和千问、豆包一起讨论确定的，  AI时代的校园基建想法（PDF） &#x2F; PPT  校园平台仓库地址我创建仓库了，主要是担心后面想法变了或者发现前面的想法S13，所以搞个版本管理当前正在尝试设计和开发：目前就我一个vibe也就没什么开发和编码规范了，想一出是一出节省时间，一个main分支随便整，一把梭，反正都是ai搞下面这些图都是想到啥就写啥的">
+<meta property="og:type" content="website">
+<meta property="og:title" content="乱七八糟的想法">
+<meta property="og:url" content="http://blog.quanxiaoer.me/ideas/index.html">
+<meta property="og:site_name" content="泉的blog">
+<meta property="og:description" content="此PDF与PPT由千问3.7 和生成,内容是本人和千问、豆包一起讨论确定的，  AI时代的校园基建想法（PDF） &#x2F; PPT  校园平台仓库地址我创建仓库了，主要是担心后面想法变了或者发现前面的想法S13，所以搞个版本管理当前正在尝试设计和开发：目前就我一个vibe也就没什么开发和编码规范了，想一出是一出节省时间，一个main分支随便整，一把梭，反正都是ai搞下面这些图都是想到啥就写啥的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/IMG_6692.JPG">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/portal.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/school_mcp_plat.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/mcpservices.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/mcp%20_plat_user_accesskey_view.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/usehistory.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/adminview1.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/adminview2.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/addmcp1.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/addmcp2.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/mcpinfo.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/rbacview1.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/rbacview2.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/rbacview3.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/settings1.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/settings2.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/settings3.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/publish_to%20_apisix.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/publish_result1.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/publish_result2.png">
+<meta property="og:image" content="http://blog.quanxiaoer.me/images/delete.png">
+<meta property="article:published_time" content="2026-07-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-02T10:10:51.902Z">
+<meta property="article:author" content="ZQ wang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.quanxiaoer.me/images/IMG_6692.JPG">
+  
+    <link rel="alternate" href="/atom.xml" title="泉的blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">泉的blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/AboutMe">AboutMe</a>
+        
+          <a class="main-nav-link" href="/NewApiEdu">NewApi二开</a>
+        
+          <a class="main-nav-link" href="/links">友情链接</a>
+        
+          <a class="main-nav-link" href="/ideas">乱七八糟的想法</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a id="theme-toggle" class="nav-icon" title="切换主题"><span class="fa fa-moon-o"></span></a>
+        <a id="lang-switch" class="nav-icon" href="/en/ideas/" title="Switch to English"><span class="lang-switch-text">EN</span></a>
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.quanxiaoer.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/ideas/index.html" class="article-date">
+  <time class="dt-published" datetime="2026-07-05T16:00:00.000Z" itemprop="datePublished">2026-07-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      乱七八糟的想法
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>此PDF与PPT由千问3.7 和生成,内容是本人和千问、豆包一起讨论确定的，</p>
+<ul>
+<li><a href="AI%E6%97%B6%E4%BB%A3%E6%A0%A1%E5%9B%AD%E5%9F%BA%E5%BB%BA.pdf">AI时代的校园基建想法（PDF）</a> &#x2F; <a href="AI%E6%97%B6%E4%BB%A3%E6%A0%A1%E5%9B%AD%E5%9F%BA%E5%BB%BA.pptx">PPT</a></li>
+</ul>
+<h2 id="校园平台"><a href="#校园平台" class="headerlink" title="校园平台"></a>校园平台</h2><p><a target="_blank" rel="noopener" href="https://gitee.com/ddbxiaoer/mcp_plat">仓库地址</a><br>我创建仓库了，主要是担心后面想法变了或者发现前面的想法S13，所以搞个版本管理<br>当前正在尝试设计和开发：<br>目前就我一个vibe也就没什么开发和编码规范了，想一出是一出节省时间，一个main分支随便整，一把梭，反正都是ai搞<br><strong>下面这些图都是想到啥就写啥的产物，如果你觉得那块设计不合理可直接评论</strong><br>2026年7月10日,我开始vibe后端了<br>根据目前ai的使用量来看，感觉如果我做下去，理论上300块钱内能把一个demo搞出来<br>2026&#x2F;07&#x2F;26&#x2F;我差不多做完了。 消费DeepSeek大概30块钱左右，<br>目前消费79.62块钱也还行吧<br><img src="/../images/IMG_6692.JPG" alt="代码统计"><br><em>感谢梁圣</em><br><img src="/../images/portal.png" alt="portal"></p>
+<p>等我攒点钱在阿里云搞个demo<br>搭环境也好费事啊，可惜这块AI还不能自己搞定</p>
+<ul>
+<li><strong>校园 MCP AI 开放平台</strong></li>
+</ul>
+<p><img src="/../images/school_mcp_plat.png" alt="校园MCP AI开放平台"><br><img src="/../images/mcpservices.png" alt="校园MCP AI开放平台2"><br><img src="/../images/mcp%20_plat_user_accesskey_view.png" alt="校园MCP AI开放平台用户accesskey页面"><br><img src="/../images/usehistory.png" alt="校园MCP AI开放平台使用历史查询页面"></p>
+<p><img src="/../images/adminview1.png" alt="管理员视图"><br><img src="/../images/adminview2.png" alt="管理员视图-20260815更新"><br><img src="/../images/addmcp1.png" alt="添加MCP"><br><img src="/../images/addmcp2.png" alt="MCP添加结果"><br><img src="/../images/mcpinfo.png" alt="MCP信息"><br><img src="/../images/rbacview1.png" alt="权限管理1"><br><img src="/../images/rbacview2.png" alt="权限管理2"><br><img src="/../images/rbacview3.png" alt="权限管理3"><br><img src="/../images/settings1.png" alt="设置1"><br><img src="/../images/settings2.png" alt="设置2"><br><img src="/../images/settings3.png" alt="设置3"></p>
+<p><img src="/../images/publish_to%20_apisix.png" alt="发布mcp服务器到网关"><br><img src="/../images/publish_result1.png" alt="发布mcp服务器到网关2"><br><img src="/../images/publish_result2.png" alt="发布mcp服务器到网关3"><br><img src="/../images/delete.png" alt="删除服务器"></p>
+<h2 id="开发记录（git-提交历史）"><a href="#开发记录（git-提交历史）" class="headerlink" title="开发记录（git 提交历史）"></a>开发记录（git 提交历史）</h2><ul>
+<li><code>e348fb1</code> 2026-09-02 feat: 前后端接入 i18n（中英双语）</li>
+<li><code>a56ef25</code> 2026-08-30 feat: 过期 AccessKey 禁止启用并邮件通知用户删除</li>
+<li><code>0dc8421</code> 2026-08-29 docs: README 补充个人说明</li>
+<li><code>fb7f692</code> 2026-08-29 docs: 新增英文 README 并在默认 README 中关联</li>
+<li><code>c8b7f80</code> 2026-08-29 feat: 个人信息支持修改邮箱；审计记录 AccessKey 使用来源 IP</li>
+<li><code>70274cb</code> 2026-08-29 fix: LDAP 测试提示移到保存按钮下方</li>
+<li><code>2f3e08a</code> 2026-08-29 feat: 登录页毛玻璃+平台登录背景图，SMTP 邮件通知配置与测试、通知封装</li>
+<li><code>86267c4</code> 2026-08-28 update readme</li>
+<li><code>f26ef47</code> 2026-08-28 feat：模拟mcp服务支持协议版本选择</li>
+<li><code>93a6ab5</code> 2026-08-27 feat: 新增纯后端Docker镜像构建目标</li>
+<li><code>7421b45</code> 2026-08-27 feat: RBAC用户管理支持按学号&#x2F;工号搜索</li>
+<li><code>578d041</code> 2026-08-27 feat: 添加测试MCP服务合集</li>
+<li><code>5066dce</code> 2026-08-27 ldap测试账户的密码改为123456</li>
+<li><code>de7f67b</code> 2026-08-27 docs: 补充LDAP测试账号uid正则表达式</li>
+<li><code>cb4c93c</code> 2026-08-27 feat: 扩展LDAP数据结构并修复前端测试功能</li>
+<li><code>af365e5</code> 2026-08-26 从仓库移除 dockercompose&#x2F;ldap.tar 并加入 .gitignore</li>
+<li><code>29ec903</code> 2026-08-26 追加测试部署所需文件</li>
+<li><code>30cecf9</code> 2026-08-26 docs: 说明 LDAP 登录用户名取决于 userFilter 配置</li>
+<li><code>95b6821</code> 2026-08-26 docs: Docker Compose 章节补充 LDAP 测试账号</li>
+<li><code>38249ae</code> 2026-08-26 docs: README 新增 Docker Compose 快速部署章节</li>
+<li><code>78979ed</code> 2026-08-25 feat: 新用户角色自动分配改为按正则规则匹配，替代默认角色</li>
+<li><code>99cc3f5</code> 2026-08-24 fix:部署架构描述错误</li>
+<li><code>26f505b</code> 2026-08-24 docs: 添加部署架构文档链接及说明</li>
+<li><code>89a9375</code> 2026-08-23 fix: 负载均衡在途数相等时按轮询分配，修复请求始终命中首个后端</li>
+<li><code>c8c7c17</code> 2026-08-23 fix: gRPC 负载均衡惰性连接导致只连首个后端</li>
+<li><code>41af0ec</code> 2026-08-23 chore: 移除 Kubernetes 清单中的 apisix 与 etcd 部署</li>
+<li><code>ee3ec86</code> 2026-08-22 feat: 新增 Kubernetes 部署清单（namespace&#x2F;configmap&#x2F;etcd&#x2F;apisix&#x2F;各服务），密钥占位化</li>
+<li><code>1c100dd</code> 2026-08-22 feat: APISIX 插件支持多后端 gRPC 地址，按连接数负载均衡</li>
+<li><code>12bddcf</code> 2026-08-22 chore: gitignore 放行 dockercompose 配置模板（密钥占位，可提交）</li>
+<li><code>0c2aa62</code> 2026-08-21 feat: 日志默认输出到标准输出+本地文件(.&#x2F;logs&#x2F;mcp_plat.log)并支持轮转，前端可配置，启用syslog后失效</li>
+<li><code>5c77fcb</code> 2026-08-21 feat: 新增 &#x2F;healthz 与 &#x2F;readyz 健康检查接口（供 Docker&#x2F;K8s 探针使用）</li>
+<li><code>38e655f</code> 2026-08-21 feat: 新增 docker-compose 部署配置（PostgreSQL&#x2F;ClickHouse）及配置示例，密钥占位化</li>
+<li><code>516edaf</code> 2026-08-20 fix: 修正 Dockerfile 配置文件拷贝路径，审计日志切换 ClickHouse 存储</li>
+<li><code>c40d2b0</code> 2026-08-20 feat: 新增 docker 镜像构建（amd64&#x2F;arm64）及 Makefile 目标</li>
+<li><code>3fa631f</code> 2026-08-19 update makefile build target name</li>
+<li><code>3dc7d2f</code> 2026-08-19 fix: 维护穿梭框确认按钮按状态动态显示文案，取消维护时提示确认取消维护</li>
+<li><code>0ac9670</code> 2026-08-18 feat: MCP 服务器支持维护模式，网关路由直接返回 503，穿梭框选择并支持取消维护</li>
+<li><code>614fe32</code> 2026-08-17 feat: 快速接入页面，支持 CherryStudio 深链导入，服务器 Key 验证&#x2F;接入协议可由管理员运营设置控制</li>
+<li><code>858295c</code> 2026-08-16 feat: 侧边栏新增亮暗主题切换开关，图表&#x2F;输入控件适配暗色主题</li>
+<li><code>1bd69c7</code> 2026-08-15 feat: 平台概况新增服务器&#x2F;用户组占比饼图与按天堆叠柱状图，新增审计数据生成器 auditgen</li>
+<li><code>672d4f7</code> 2026-08-14 license: 项目开源协议由 WTFPL 更换为 AGPL-3.0</li>
+<li><code>f7a164d</code> 2026-08-12 feat: API 网关新增 Kong 接入（仅发布上游&#x2F;Service&#x2F;路由，不下发插件）</li>
+<li><code>b580966</code> 2026-08-12 feat: 移除 SQLite 支持，新增 MySQL 驱动（修复交叉编译 CGO 问题）</li>
+<li><code>1c8e613</code> 2026-08-10 feat: audit-log-server 落库时输出批量写入日志</li>
+<li><code>e5bc8f4</code> 2026-08-10 docs: 补全 api-devstatus 已实现接口清单</li>
+<li><code>bc42d7a</code> 2026-08-10 docs: 更新 README 项目介绍，同步最新功能与 API 路由</li>
+<li><code>35e15f0</code> 2026-08-10 fix: 审计日志兼容旧版 access_key_id&#x3D;0 记录，修复 ClickHouse 查询 UInt64 扫描报错</li>
+<li><code>f34cceb</code> 2026-08-10 feat: 审计日志两库分离支持 ClickHouse，发布服务器选择改为穿梭框</li>
+<li><code>0c39160</code> 2026-08-09 feat: 使用历史分页支持页号选择与跳转输入</li>
+<li><code>503bd9c</code> 2026-08-09 fix: 平台概况折线图修复 CSS 变量颜色导致空白，折线改直线</li>
+<li><code>b2c9f4d</code> 2026-08-09 fix: 修复 AI 调用趋势 DATE 列扫描格式不匹配导致全为 0</li>
+<li><code>1d98b1a</code> 2026-08-09 feat: AI 调用历史趋势接入后端，平台概况支持手动刷新与自动刷新</li>
+<li><code>f0c5969</code> 2026-08-09 refactor: 重构 Makefile 构建目标，按 local&#x2F;release&#x2F;linux 平台分组</li>
+<li><code>d5d1f13</code> 2026-08-07 feat: 获取工具独立区域，支持下拉选择&#x2F;自定义地址，默认随机选取，修复对话框滚动</li>
+<li><code>3bd7665</code> 2026-08-07 feat: MCP 服务地址支持多地址，获取工具时随机选择，发布时轮询负载均衡</li>
+<li><code>cd715a5</code> 2026-08-06 feat: 主服务新增 -port 与 -version 命令行参数</li>
+<li><code>fcce0f3</code> 2026-08-05 fix: audit-log-server 服务端解析 access_key 提取 userID，查询改用 access_key 关联用户</li>
+<li><code>28b9322</code> 2026-08-04 feat: 使用历史视图接入真实后端API，支持分页与筛选</li>
+<li><code>91cefb7</code> 2026-08-04 feat: audit_log 插件独立 + JWT解析user_id + 两库分离配置 + 审计日志查询API</li>
+<li><code>a78b094</code> 2026-08-03 feat: 角色分配穿梭框支持按账号过滤搜索</li>
+<li><code>580288f</code> 2026-08-01 feat: LDAP 属性映射、用户名、AccessKey 数量限制、过期扫描定时任务</li>
+<li><code>2ae53f3</code> 2026-08-01 feat: 登录时通过 LDAP 属性映射同步用户</li>
+<li><code>fe5cd17</code> 2026-07-31 feat: 新增 audit-log-server 与系统设置界面</li>
+<li><code>a374999</code> 2026-07-31 feat: 更新 MCP 协议版本默认值为 2026-07-28</li>
+<li><code>da8525d</code> 2026-07-30 fix: GetSettings&#x2F;GetSettingByKey 对 api_gateway 只返回 configured 状态</li>
+<li><code>3724122</code> 2026-07-30 fix: header 不再通过 fetchSettings 暴露完整网关配置</li>
+<li><code>c6edcb0</code> 2026-07-30 refactor: 新增网关状态检测端点，不泄露 admin 配置</li>
+<li><code>3549809</code> 2026-07-30 fix: logo 样式适配宽版校徽 + 前端简化网关配置检测</li>
+<li><code>0596700</code> 2026-07-30 feat: 适配 MCP 2025-06-18 规范 - Bearer Token 鉴权 + 协议版本选择</li>
+<li><code>24f4ab8</code> 2026-07-29 chore: 忽略生成的 protobuf 文件 (*.pb.go)</li>
+<li><code>786d78d</code> 2026-07-29 chore: 更新项目结构、API 文档与设置界面</li>
+<li><code>e086f9a</code> 2026-07-29 chore: 从仓库中移除 build 目录</li>
+<li><code>daa81b2</code> 2026-07-29 feat: 发布时使用系统设置中配置的 AccessKey Header 名称，发布确认页展示 Header 配置</li>
+<li><code>e082d33</code> 2026-07-28 docs: 补充 MCP 工具级管控特点到 README</li>
+<li><code>4334d9a</code> 2026-07-28 revert: 代码默认配置路径保持 root 相对路径</li>
+<li><code>cba8765</code> 2026-07-28 chore: 项目文件组织优化 — 编译产物和配置统一到 build&#x2F; 目录</li>
+<li><code>570f050</code> 2026-07-28 fix: AccessKey servers JSON 格式对齐前端，修复空 tools 权限绕过；新增 accesskey-test 诊断工具；添加 Author 注释</li>
+<li><code>dc3a0a2</code> 2026-07-27 feat: AccessKey 工具级权限鉴权</li>
+<li><code>4a25986</code> 2026-07-26 docs: 重写 README，补充功能特性、API 接口和项目介绍</li>
+<li><code>2556ecf</code> 2026-07-26 feat: 实现 LDAP 和 CAS 认证</li>
+<li><code>38c38bf</code> 2026-07-26 fix: 角色编辑保存 server_ids 被 Number() 转为 NaN 导致保存无效；增加发布时启用认证选项</li>
+<li><code>78da3f4</code> 2026-07-25 feat: SSRF防护 + 登录限流 + 优雅关闭 + 跨平台编译</li>
+<li><code>4759478</code> 2026-07-25 revert: 移除环境变量覆盖，配置文件缺失直接fatal退出</li>
+<li><code>a5ceadc</code> 2026-07-24 fix(p0): 修复安全审计报告的4个严重问题</li>
+<li><code>593da0f</code> 2026-07-24 fix: MCPServer 字符串主键删除改用显式 Where 子句；新增服务器删除确认对话框</li>
+<li><code>2d1b0f1</code> 2026-07-23 feat: 服务器列表&#x2F;详情显示UUID，发布时添加proxy-rewrite插件重写URI</li>
+<li><code>5b74510</code> 2026-07-23 fix: datagen 工具为 MCPServer ID 生成 UUID</li>
+<li><code>da25f6f</code> 2026-07-23 refactor: MCPServer ID 由 uint 改为 UUID 字符串</li>
+<li><code>f41b075</code> 2026-07-22 feat: gRPC 服务基于角色的访问控制 + 界面抽屉与发布对话框</li>
+<li><code>535e0e6</code> 2026-07-21 rename: accesskey-server 更名为 accesskey-auth-server</li>
+<li><code>5ec8882</code> 2026-07-20 新增 LICENSE 文件</li>
+<li><code>ebcbcac</code> 2026-07-20 build: 为 build-accesskey-server 和 build-apisix-runner 目标添加 proto 依赖</li>
+<li><code>3f535af</code> 2026-07-20 feat: AccessKey JWT 生成 + gRPC 校验服务 + APISIX 插件</li>
+<li><code>b0bee64</code> 2026-07-19 feat: 通过共享设置存储支持平台品牌自定义</li>
+<li><code>ea09bde</code> 2026-07-18 chore: 从仓库移除 data.db</li>
+<li><code>fbaf8fd</code> 2026-07-18 feat: 新增系统设置管理，支持 log&#x2F;SMTP&#x2F;auth&#x2F;user_ops 配置</li>
+<li><code>30deaf6</code> 2026-07-17 feat: 通过 Streamable HTTP 和 SSE 协议自动拉取 MCP 工具列表</li>
+<li><code>ff7e6f9</code> 2026-07-15 feat: RBAC 用户列表显示用户 UID 而非用户名</li>
+<li><code>4141088</code> 2026-07-15 docs: 更新 PROJECT_STRUCTURE.md，将 &#x2F;api&#x2F;history 标记为计划中，补充 AGENTS.md 规范</li>
+<li><code>15f1b1f</code> 2026-07-14 feat: 新增 RBAC 系统，支持角色&#x2F;用户管理与管理员中间件</li>
+<li><code>7aeb600</code> 2026-07-14 feat: 新增 RBAC 设置页，角色&#x2F;用户管理，服务器分配穿梭框</li>
+<li><code>d205dd6</code> 2026-07-13 feat(datagen): 用户单位偏向校内院系</li>
+<li><code>8a168ae</code> 2026-07-13 chore: 切换至 postgres 并启用查询日志</li>
+<li><code>cc68854</code> 2026-07-13 feat: 新增 datagen 测试数据生成工具</li>
+<li><code>0381a7a</code> 2026-07-13 feat: 新增 windows&#x2F;arm64 内嵌构建目标，忽略 data.db</li>
+<li><code>1ba5407</code> 2026-07-13 实现mcp server api</li>
+<li><code>3437a2a</code> 2026-07-11 更新测试环境信息</li>
+<li><code>8948735</code> 2026-07-11 feat: 新增管理员视图（概况、服务器、设置）</li>
+<li><code>11dd8ea</code> 2026-07-11 docs: 新增 web&#x2F;PROJECT_STRUCTURE.md 并更新 web&#x2F;AGENTS.md</li>
+<li><code>ffc5b42</code> 2026-07-11 chore: 移除 web&#x2F;dist.zip 并加入 .gitignore</li>
+<li><code>b95af76</code> 2026-07-11 feat: 基于 git 的版本信息，新增 README</li>
+<li><code>80a57cb</code> 2026-07-11 chore: 初始提交</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/ideas/index.html" data-id="cuidxwAsJiiDdNCSuE0Jq0G0b" data-title="乱七八糟的想法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+
+
+  <section id="comments" class="comment-section">
+  <h3 class="comment-title">评论</h3>
+  <div id="comment-list"></div>
+  <div class="comment-form-wrap">
+    <h4>发表评论</h4>
+    <form id="comment-form" onsubmit="return submitComment(event)">
+      <input type="text" name="_website" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="comment-field">
+        <input type="text" id="comment-author" name="author" placeholder="昵称 *" maxlength="32" required>
+      </div>
+      <div class="comment-field">
+        <textarea id="comment-content" name="content" placeholder="说点什么..." maxlength="1000" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="comment-submit">提交评论</button>
+      <span id="comment-msg"></span>
+    </form>
+  </div>
+</section>
+
+<script>
+(function() {
+  var api = 'https://blog.quanxiaoer.me/api/comments';
+  var slug = 'ideas/index.html';
+  var lang = 'zh';
+
+  var I18N = {
+    zh: {
+      reply: '回复',
+      write_reply: '写下你的回复...',
+      submit_reply: '提交回复',
+      cancel: '取消',
+      empty: '暂无评论，来说两句吧',
+      fill_required: '请填写昵称和内容',
+      submitting: '提交中...',
+      comment_too_frequent: '评论太频繁，请稍后再试',
+      comment_failed: '评论失败，请稍后重试',
+      reply_too_frequent: '回复太频繁，请稍后再试',
+      reply_failed: '回复失败，请稍后重试',
+      network_error: '网络错误，请稍后重试',
+      success: '评论成功'
+    },
+    en: {
+      reply: 'Reply',
+      write_reply: 'Write your reply...',
+      submit_reply: 'Submit',
+      cancel: 'Cancel',
+      empty: 'No comments yet. Be the first to comment.',
+      fill_required: 'Please fill in nickname and content',
+      submitting: 'Submitting...',
+      comment_too_frequent: 'Too many comments, please try again later',
+      comment_failed: 'Failed to post comment, please try again later',
+      reply_too_frequent: 'Too many replies, please try again later',
+      reply_failed: 'Failed to post reply, please try again later',
+      network_error: 'Network error, please try again later',
+      success: 'Comment posted'
+    }
+  };
+  var L = ('zh-CN' === 'en') ? I18N.en : I18N.zh;
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  function renderCommentItem(c, replies) {
+    var childReplies = replies[c.id] || [];
+    var html = '<div class="comment-item">'
+      + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(c.author) + '</span>'
+      + '<span class="comment-time">' + escapeHtml(c.created_at) + '</span></div>'
+      + '<div class="comment-body">' + escapeHtml(c.content) + '</div>'
+      + '<div class="comment-actions"><a href="javascript:void(0)" class="comment-reply-btn" data-id="' + c.id + '">' + L.reply + '</a></div>'
+      + '<div class="comment-reply-form" id="reply-form-' + c.id + '" style="display:none">'
+      + '<input type="text" class="reply-author" id="ra-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="32">'
+      + '<textarea class="reply-content" id="rc-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="1000" rows="3"></textarea>'
+      + '<button class="reply-submit" data-parent="' + c.id + '">' + L.submit_reply + '</button>'
+      + '<button class="reply-cancel" data-parent="' + c.id + '">' + L.cancel + '</button>'
+      + '<span class="reply-msg" id="rm-' + c.id + '"></span>'
+      + '</div>'
+      + '</div>';
+
+    childReplies.forEach(function(r) {
+      html += '<div class="comment-item comment-reply">'
+        + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(r.author) + '</span>'
+        + '<span class="comment-reply-to">' + L.reply + '</span>'
+        + '<span class="comment-time">' + escapeHtml(r.created_at) + '</span></div>'
+        + '<div class="comment-body">' + escapeHtml(r.content) + '</div>'
+        + '</div>';
+    });
+
+    return html;
+  }
+
+  function renderComments(comments) {
+    var el = document.getElementById('comment-list');
+    if (!comments || comments.length === 0) {
+      el.innerHTML = '<p class="comment-empty">' + L.empty + '</p>';
+      return;
+    }
+
+    var topLevel = [];
+    var replies = {};
+    comments.forEach(function(c) {
+      if (c.parent_id) {
+        if (!replies[c.parent_id]) replies[c.parent_id] = [];
+        replies[c.parent_id].push(c);
+      } else {
+        topLevel.push(c);
+      }
+    });
+
+    var html = '';
+    topLevel.forEach(function(c) {
+      html += renderCommentItem(c, replies);
+    });
+    el.innerHTML = html;
+  }
+
+  function loadComments() {
+    fetch(api + '?post_id=' + encodeURIComponent(slug) + '&lang=' + lang)
+      .then(function(r) { return r.json(); })
+      .then(function(d) { renderComments(d.comments); })
+      .catch(function() {});
+  }
+
+  loadComments();
+
+  document.getElementById('comment-list').addEventListener('click', function(e) {
+    var target = e.target;
+
+    if (target.classList.contains('comment-reply-btn')) {
+      e.preventDefault();
+      var id = target.getAttribute('data-id');
+      var form = document.getElementById('reply-form-' + id);
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-cancel')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      document.getElementById('reply-form-' + pid).style.display = 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-submit')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      var author = document.getElementById('ra-' + pid).value.trim();
+      var content = document.getElementById('rc-' + pid).value.trim();
+      var msgEl = document.getElementById('rm-' + pid);
+
+      if (!author || !content) {
+        msgEl.textContent = L.fill_required;
+        return;
+      }
+
+      msgEl.textContent = L.submitting;
+      var body = 'post_id=' + encodeURIComponent(slug)
+        + '&author=' + encodeURIComponent(author)
+        + '&content=' + encodeURIComponent(content)
+        + '&parent_id=' + encodeURIComponent(pid)
+        + '&lang=' + lang
+        + '&_website=';
+
+      fetch(api, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      }).then(function(r) {
+        if (r.ok) {
+          document.getElementById('reply-form-' + pid).style.display = 'none';
+          document.getElementById('ra-' + pid).value = '';
+          document.getElementById('rc-' + pid).value = '';
+          msgEl.textContent = '';
+          loadComments();
+        } else if (r.status === 429) {
+          msgEl.textContent = L.reply_too_frequent;
+        } else {
+          msgEl.textContent = L.reply_failed;
+        }
+      }).catch(function() {
+        msgEl.textContent = L.network_error;
+      });
+      return;
+    }
+  });
+
+  window.submitComment = function(e) {
+    e.preventDefault();
+    var author = document.getElementById('comment-author').value.trim();
+    var content = document.getElementById('comment-content').value.trim();
+    var msgEl = document.getElementById('comment-msg');
+    if (!author || !content) {
+      msgEl.textContent = L.fill_required;
+      return false;
+    }
+    msgEl.textContent = L.submitting;
+    var body = 'post_id=' + encodeURIComponent(slug)
+      + '&author=' + encodeURIComponent(author)
+      + '&content=' + encodeURIComponent(content)
+      + '&lang=' + lang
+      + '&_website=';
+    fetch(api, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    }).then(function(r) {
+      if (r.ok) {
+        document.getElementById('comment-author').value = '';
+        document.getElementById('comment-content').value = '';
+        msgEl.textContent = L.success;
+        loadComments();
+      } else if (r.status === 429) {
+        msgEl.textContent = L.comment_too_frequent;
+      } else {
+        msgEl.textContent = L.comment_failed;
+      }
+    }).catch(function() {
+      msgEl.textContent = L.network_error;
+    });
+    return false;
+  };
+})();
+</script>
+
+<style>
+.comment-section { margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd; }
+.comment-title { font-size: 20px; margin-bottom: 20px; }
+.comment-empty { color: #999; font-size: 14px; }
+.comment-item { padding: 12px 0; border-bottom: 1px solid #eee; }
+.comment-meta { margin-bottom: 6px; }
+.comment-author { font-weight: bold; color: #333; margin-right: 12px; }
+.comment-time { color: #999; font-size: 12px; }
+.comment-body { color: #555; font-size: 14px; line-height: 1.6; word-break: break-all; }
+.comment-actions { margin-top: 6px; }
+.comment-reply-btn { color: #258fb8; font-size: 13px; text-decoration: none; cursor: pointer; }
+.comment-reply-btn:hover { text-decoration: underline; }
+.comment-reply { margin-left: 40px; padding-left: 16px; border-left: 3px solid #258fb8; background: #fafafa; }
+.comment-reply .comment-item { border-bottom: none; }
+.comment-reply-to { color: #999; font-size: 12px; margin: 0 8px; }
+.comment-reply-form { margin-top: 10px; padding: 12px; background: #f9f9f9; border-radius: 4px; }
+.comment-reply-form input,
+.comment-reply-form textarea {
+  width: 100%; padding: 6px 8px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 13px; box-sizing: border-box; outline: none; margin-bottom: 8px;
+}
+.comment-reply-form input:focus,
+.comment-reply-form textarea:focus { border-color: #258fb8; }
+.comment-reply-form textarea { resize: vertical; }
+.reply-submit { background: #258fb8; color: #fff; border: none; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; margin-right: 8px; }
+.reply-submit:hover { background: #1e7a9b; }
+.reply-cancel { background: #fff; color: #999; border: 1px solid #ccc; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; }
+.reply-cancel:hover { color: #555; border-color: #999; }
+.reply-msg { margin-left: 10px; font-size: 13px; color: #999; }
+.comment-form-wrap { margin-top: 24px; }
+.comment-form-wrap h4 { font-size: 16px; margin-bottom: 12px; }
+.comment-field { margin-bottom: 10px; }
+.comment-field input,
+.comment-field textarea {
+  width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 14px; box-sizing: border-box; outline: none;
+}
+.comment-field input:focus,
+.comment-field textarea:focus { border-color: #258fb8; }
+.comment-field textarea { resize: vertical; }
+.comment-submit {
+  background: #258fb8; color: #fff; border: none; padding: 8px 20px;
+  border-radius: 4px; font-size: 14px; cursor: pointer;
+}
+.comment-submit:hover { background: #1e7a9b; }
+#comment-msg { margin-left: 10px; font-size: 14px; color: #999; }
+</style>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/operations-experience/">运维经验记录</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/operations-experience/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/operations-experience/vmware/">vmware</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">七月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/07/20/%E4%B8%80%E6%AC%A1%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%9B%9E%E5%BF%86/">一次事件处理回忆</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/05/%E6%9D%82%E9%A1%B9/">杂项</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/27/linux%E5%BC%80%E5%90%AFserial%E7%99%BB%E9%99%86%E6%93%8D%E4%BD%9C/">linux开启serial登陆操作</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/27/ssl%E8%AF%81%E4%B9%A6%E8%87%AA%E7%AD%BE%E5%90%8D%E5%BF%AB%E6%8D%B7%E5%88%B6%E4%BD%9C/">ssl证书自签名快捷制作</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/24/vmware-esxi-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">VMware ESXi 常用命令</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="friend-links" class="inner">
+      <h3>友情链接</h3>
+      <a href="https://blog.topcaver.com/" target="_blank" rel="noopener noreferrer">Topcaver</a>
+      <a href="https://nti.nsfocus.com/" target="_blank" rel="noopener noreferrer">绿盟威胁情报nti</a>
+      <a href="https://www.alimama.com/index.htm" target="_blank" rel="noopener noreferrer">阿里妈妈</a>
+    </div>
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 ZQ wang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/AboutMe" class="mobile-nav-link">AboutMe</a>
+  
+    <a href="/NewApiEdu" class="mobile-nav-link">NewApi二开</a>
+  
+    <a href="/links" class="mobile-nav-link">友情链接</a>
+  
+    <a href="/ideas" class="mobile-nav-link">乱七八糟的想法</a>
+  
+</nav>
+    
+
+<a id="back-to-top" class="fa fa-chevron-up" title="回到顶部"></a>
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

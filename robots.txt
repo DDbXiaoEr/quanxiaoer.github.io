@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://blog.quanxiaoer.me/sitemap.xml
+Sitemap: http://blog.quanxiaoer.me/sitemap.txt

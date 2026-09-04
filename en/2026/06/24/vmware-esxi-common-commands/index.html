@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}})();
+  </script>
+  
+  
+  <title>VMware ESXi Common Commands | 泉的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Virtual MachinesList running virtual machines (esxcli vm process list shows the World ID of each VM, handy for later targeted operations): 12esxcli vm process listvim-cmd vmsvc&#x2F;getallvms  FirewallChec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VMware ESXi Common Commands">
+<meta property="og:url" content="http://blog.quanxiaoer.me/en/2026/06/24/vmware-esxi-common-commands/index.html">
+<meta property="og:site_name" content="泉的blog">
+<meta property="og:description" content="Virtual MachinesList running virtual machines (esxcli vm process list shows the World ID of each VM, handy for later targeted operations): 12esxcli vm process listvim-cmd vmsvc&#x2F;getallvms  FirewallChec">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-06-24T09:30:00.000Z">
+<meta property="article:modified_time" content="2026-08-30T08:57:39.069Z">
+<meta property="article:author" content="ZQ wang">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="泉的blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/en/" id="logo">泉的blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/en/">Home</a>
+        
+          <a class="main-nav-link" href="/en/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/en/AboutMe">About Me</a>
+        
+          <a class="main-nav-link" href="/en/NewApiEdu">NewApi</a>
+        
+          <a class="main-nav-link" href="/en/links">Links</a>
+        
+          <a class="main-nav-link" href="/en/ideas">Ideas</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a id="theme-toggle" class="nav-icon" title="切换主题"><span class="fa fa-moon-o"></span></a>
+        <a id="lang-switch" class="nav-icon" href="/2026/06/24/vmware-esxi-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="切换为中文"><span class="lang-switch-text">中文</span></a>
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.quanxiaoer.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-vmware-esxi-common-commands" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/06/24/vmware-esxi-common-commands/" class="article-date">
+  <time class="dt-published" datetime="2026-06-24T09:30:00.000Z" itemprop="datePublished">2026-06-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/VMware/">VMware</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      VMware ESXi Common Commands
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Virtual-Machines"><a href="#Virtual-Machines" class="headerlink" title="Virtual Machines"></a>Virtual Machines</h2><p>List running virtual machines (<code>esxcli vm process list</code> shows the World ID of each VM, handy for later targeted operations):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">esxcli vm process list</span><br><span class="line">vim-cmd vmsvc/getallvms</span><br></pre></td></tr></table></figure>
+
+<h2 id="Firewall"><a href="#Firewall" class="headerlink" title="Firewall"></a>Firewall</h2><p>Check the status:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network firewall get</span><br></pre></td></tr></table></figure>
+
+<p>Enable:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network firewall set --enabled true</span><br></pre></td></tr></table></figure>
+
+<p>Disable:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network firewall set --enabled false</span><br></pre></td></tr></table></figure>
+
+<h2 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h2><h3 id="Mount-an-existing-VMFS-datastore"><a href="#Mount-an-existing-VMFS-datastore" class="headerlink" title="Mount an existing VMFS datastore"></a>Mount an existing VMFS datastore</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">esxcfg-volume -l</span><br><span class="line"># Example output: VMFS UUID/label 5dee105a-f101f5ba-5e6a-08f1eaf7169e/datastore1</span><br><span class="line">esxcfg-volume -m &lt;UUID&gt;</span><br><span class="line"># This mounts it, and you can rename it</span><br></pre></td></tr></table></figure>
+
+<h3 id="Passthrough-a-physical-disk-to-a-VM"><a href="#Passthrough-a-physical-disk-to-a-VM" class="headerlink" title="Passthrough a physical disk to a VM"></a>Passthrough a physical disk to a VM</h3><ol>
+<li>Get the disk name from the UI or with this command:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli storage core device list</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Create a mapped vmdk on the storage path:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmkfstools -z /vmfs/devices/disks/&lt;disk name&gt; &lt;mapped path&gt;/&lt;mapped name&gt;.vmdk</span><br></pre></td></tr></table></figure>
+
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><h3 id="iDRAC"><a href="#iDRAC" class="headerlink" title="iDRAC"></a>iDRAC</h3><p>Get the iDRAC address of a Dell server running ESXi while it is powered on:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">localcli hardware ipmi bmc get</span><br><span class="line"># Example output</span><br><span class="line"># IpmiBmcConfig:</span><br><span class="line">#    BMC Firmware Version: 2.50</span><br><span class="line">#    Hostname Reported: W I N - G N T P T 2 8 B R B B</span><br><span class="line">#    IPMI Version: 2.0</span><br><span class="line">#    IPv4 Address: 192.168.0.138</span><br><span class="line">#    IPv4 Gateway: 192.168.0.1</span><br><span class="line">#    IPv4 Subnet: 255.255.255.0</span><br><span class="line">#    IPv6 Addresses:</span><br><span class="line">#    LAN ifAdminStatus: true</span><br><span class="line">#    MAC Address: 18:fb:7b:98:c3:1c</span><br><span class="line">#    Manufacturer: Dell Inc.</span><br><span class="line">#    OS Name Reported: VMware ESXi 7.0.0 15843807</span><br></pre></td></tr></table></figure>
+
+<p>Some ESXi builds don’t have the <code>bmc</code> namespace; you can install the ipmitool VIB:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Change the ESXi acceptance level</span><br><span class="line">esxcli software acceptance set --level=CommunitySupported</span><br><span class="line"># Download from https://vswitchzero.com/ipmitool-vib/</span><br><span class="line">esxcli software vib install -v ipmitool-1.8.11-2.x86_64.vib</span><br></pre></td></tr></table></figure>
+
+<h3 id="Coredump"><a href="#Coredump" class="headerlink" title="Coredump"></a>Coredump</h3><p>Enable:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli system coredump file set -e true</span><br></pre></td></tr></table></figure>
+
+<p>Disable:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli system coredump file set -e false</span><br></pre></td></tr></table></figure>
+
+<p>Check:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli system coredump file list</span><br></pre></td></tr></table></figure>
+
+<h3 id="Server-Hardware-Info"><a href="#Server-Hardware-Info" class="headerlink" title="Server Hardware Info"></a>Server Hardware Info</h3><p>Check hardware info such as memory and CPU provided by BIOS:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbiosDump</span><br></pre></td></tr></table></figure>
+
+<p>Get host hardware information:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli hardware [cpu|ipmi|smartcard|usb|bootdevice|clock|memory|pci|platform|trustedboot]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>cpu:</strong> CPU info</li>
+<li><strong>ipmi:</strong> IPMI info</li>
+<li><strong>smartcard:</strong> Smart card subsystem</li>
+<li><strong>usb:</strong> VMware USB plugin</li>
+<li><strong>bootdevice:</strong> Boot device info</li>
+<li><strong>clock:</strong> Hardware clock interaction</li>
+<li><strong>memory:</strong> Memory info</li>
+<li><strong>pci:</strong> PCI device info and configuration</li>
+<li><strong>platform:</strong> Platform info</li>
+<li><strong>trustedboot:</strong> Trusted Boot status</li>
+</ul>
+<h2 id="Monitoring"><a href="#Monitoring" class="headerlink" title="Monitoring"></a>Monitoring</h2><h3 id="esxtop"><a href="#esxtop" class="headerlink" title="esxtop"></a>esxtop</h3><p>Similar to Linux <code>top</code>. Hotkeys:</p>
+<ul>
+<li>C (CPU)</li>
+<li>I (interrupt)</li>
+<li>M (memory)</li>
+<li>N (network)</li>
+<li>D (disk adapter)</li>
+<li>U (disk device)</li>
+<li>V (virtual disk)</li>
+<li>P (power mgmt)</li>
+</ul>
+<h2 id="Packet-Capture"><a href="#Packet-Capture" class="headerlink" title="Packet Capture"></a>Packet Capture</h2><h3 id="List-VMK-NICs"><a href="#List-VMK-NICs" class="headerlink" title="List VMK NICs"></a>List VMK NICs</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network ip interface list</span><br></pre></td></tr></table></figure>
+<p>Example output:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vmk0</span><br><span class="line">   Name: vmk0</span><br><span class="line">   MAC Address: ff:ff:ff:ff:ff:ff</span><br><span class="line">   Enabled: true</span><br><span class="line">   Portset: vSwitch0</span><br><span class="line">   Portgroup: Management Network</span><br><span class="line">   Netstack Instance: defaultTcpipStack</span><br><span class="line">   VDS Name: N/A</span><br><span class="line">   VDS UUID: N/A</span><br><span class="line">   VDS Port: N/A</span><br><span class="line">   VDS Connection: -1</span><br><span class="line">   Opaque Network ID: N/A</span><br><span class="line">   Opaque Network Type: N/A</span><br><span class="line">   External ID: N/A</span><br><span class="line">   MTU: 1500</span><br><span class="line">   TSO MSS: 65535</span><br><span class="line">   Port ID: 33554436</span><br></pre></td></tr></table></figure>
+
+<h3 id="List-physical-NICs"><a href="#List-physical-NICs" class="headerlink" title="List physical NICs"></a>List physical NICs</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network nic list</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>PCI Device</th>
+<th>Driver</th>
+<th>Admin Status</th>
+<th>Link Status</th>
+<th>Speed</th>
+<th>Duplex</th>
+<th>MAC Address</th>
+<th>MTU</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vmnic0</td>
+<td>0000:84:00.0</td>
+<td>ixgbe</td>
+<td>Up</td>
+<td>Up</td>
+<td>10000</td>
+<td>Full</td>
+<td>00:8c:fa:55:56:34</td>
+<td>1500</td>
+<td>Intel Corporation 82599EN 10 Gigabit Network Connection</td>
+</tr>
+<tr>
+<td>vmnic1</td>
+<td>0000:06:00.0</td>
+<td>igb</td>
+<td>Up</td>
+<td>Down</td>
+<td>0</td>
+<td>Half</td>
+<td>00:19:99:97:86:19</td>
+<td>1500</td>
+<td>Intel Corporation 82576NS Gigabit Network Connection</td>
+</tr>
+<tr>
+<td>vmnic2</td>
+<td>0000:06:00.1</td>
+<td>igb</td>
+<td>Up</td>
+<td>Down</td>
+<td>0</td>
+<td>Half</td>
+<td>00:19:99:97:86:18</td>
+<td>1500</td>
+<td>Intel Corporation 82576NS Gigabit Network Connection</td>
+</tr>
+</tbody></table>
+<h3 id="List-VM-port-numbers"><a href="#List-VM-port-numbers" class="headerlink" title="List VM port numbers"></a>List VM port numbers</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net-stats -l</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>PortNum</th>
+<th>Type</th>
+<th>SubType</th>
+<th>SwitchName</th>
+<th>MACAddress</th>
+<th>ClientName</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>33554434</td>
+<td>4</td>
+<td>0</td>
+<td>vSwitch0</td>
+<td>ff:ff:ff:ff:ff:ff</td>
+<td>vm-xxxxx</td>
+</tr>
+<tr>
+<td>33554436</td>
+<td>3</td>
+<td>0</td>
+<td>vSwitch0</td>
+<td>ff:ff:ff:ff:ff:ff</td>
+<td>vm-xxxxx</td>
+</tr>
+<tr>
+<td>33554437</td>
+<td>5</td>
+<td>7</td>
+<td>vSwitch0</td>
+<td>ff:ff:ff:ff:ff:ff</td>
+<td>vm-xxxxx</td>
+</tr>
+</tbody></table>
+<h3 id="Capture-ESXi-NIC-traffic"><a href="#Capture-ESXi-NIC-traffic" class="headerlink" title="Capture ESXi NIC traffic"></a>Capture ESXi NIC traffic</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump-uw -i vmk0</span><br></pre></td></tr></table></figure>
+
+<h3 id="Capture-ESXi-VM-traffic"><a href="#Capture-ESXi-VM-traffic" class="headerlink" title="Capture ESXi VM traffic"></a>Capture ESXi VM traffic</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pktcap-uw --switchport 33554437 --dir 0 --dstip 10.24.20.95 -o ICP_LIB.pcap</span><br></pre></td></tr></table></figure>
+<p><code>--dir</code> argument: <code>0</code> for VM egress (VM -&gt; OVS), <code>1</code> for VM ingress (OVS -&gt; VM)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/06/24/vmware-esxi-common-commands/" data-id="cuidBGHL2dNyfbhpWP_nf8K2a" data-title="VMware ESXi Common Commands" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/en/2026/06/27/self-signed-ssl-certificate/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Quick Self-Signed SSL Certificate
+        
+      </div>
+    </a>
+  
+  
+    <a href="/en/2026/06/24/kvm-shared-directory/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">KVM Shared Directory</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments" class="comment-section">
+  <h3 class="comment-title">Comments</h3>
+  <div id="comment-list"></div>
+  <div class="comment-form-wrap">
+    <h4>Leave a Comment</h4>
+    <form id="comment-form" onsubmit="return submitComment(event)">
+      <input type="text" name="_website" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="comment-field">
+        <input type="text" id="comment-author" name="author" placeholder="Nickname *" maxlength="32" required>
+      </div>
+      <div class="comment-field">
+        <textarea id="comment-content" name="content" placeholder="Say something..." maxlength="1000" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="comment-submit">Submit</button>
+      <span id="comment-msg"></span>
+    </form>
+  </div>
+</section>
+
+<script>
+(function() {
+  var api = 'https://blog.quanxiaoer.me/api/comments';
+  var slug = 'vmware-esxi-common-commands';
+  var lang = 'en';
+
+  var I18N = {
+    zh: {
+      reply: '回复',
+      write_reply: '写下你的回复...',
+      submit_reply: '提交回复',
+      cancel: '取消',
+      empty: '暂无评论，来说两句吧',
+      fill_required: '请填写昵称和内容',
+      submitting: '提交中...',
+      comment_too_frequent: '评论太频繁，请稍后再试',
+      comment_failed: '评论失败，请稍后重试',
+      reply_too_frequent: '回复太频繁，请稍后再试',
+      reply_failed: '回复失败，请稍后重试',
+      network_error: '网络错误，请稍后重试',
+      success: '评论成功'
+    },
+    en: {
+      reply: 'Reply',
+      write_reply: 'Write your reply...',
+      submit_reply: 'Submit',
+      cancel: 'Cancel',
+      empty: 'No comments yet. Be the first to comment.',
+      fill_required: 'Please fill in nickname and content',
+      submitting: 'Submitting...',
+      comment_too_frequent: 'Too many comments, please try again later',
+      comment_failed: 'Failed to post comment, please try again later',
+      reply_too_frequent: 'Too many replies, please try again later',
+      reply_failed: 'Failed to post reply, please try again later',
+      network_error: 'Network error, please try again later',
+      success: 'Comment posted'
+    }
+  };
+  var L = ('en' === 'en') ? I18N.en : I18N.zh;
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  function renderCommentItem(c, replies) {
+    var childReplies = replies[c.id] || [];
+    var html = '<div class="comment-item">'
+      + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(c.author) + '</span>'
+      + '<span class="comment-time">' + escapeHtml(c.created_at) + '</span></div>'
+      + '<div class="comment-body">' + escapeHtml(c.content) + '</div>'
+      + '<div class="comment-actions"><a href="javascript:void(0)" class="comment-reply-btn" data-id="' + c.id + '">' + L.reply + '</a></div>'
+      + '<div class="comment-reply-form" id="reply-form-' + c.id + '" style="display:none">'
+      + '<input type="text" class="reply-author" id="ra-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="32">'
+      + '<textarea class="reply-content" id="rc-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="1000" rows="3"></textarea>'
+      + '<button class="reply-submit" data-parent="' + c.id + '">' + L.submit_reply + '</button>'
+      + '<button class="reply-cancel" data-parent="' + c.id + '">' + L.cancel + '</button>'
+      + '<span class="reply-msg" id="rm-' + c.id + '"></span>'
+      + '</div>'
+      + '</div>';
+
+    childReplies.forEach(function(r) {
+      html += '<div class="comment-item comment-reply">'
+        + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(r.author) + '</span>'
+        + '<span class="comment-reply-to">' + L.reply + '</span>'
+        + '<span class="comment-time">' + escapeHtml(r.created_at) + '</span></div>'
+        + '<div class="comment-body">' + escapeHtml(r.content) + '</div>'
+        + '</div>';
+    });
+
+    return html;
+  }
+
+  function renderComments(comments) {
+    var el = document.getElementById('comment-list');
+    if (!comments || comments.length === 0) {
+      el.innerHTML = '<p class="comment-empty">' + L.empty + '</p>';
+      return;
+    }
+
+    var topLevel = [];
+    var replies = {};
+    comments.forEach(function(c) {
+      if (c.parent_id) {
+        if (!replies[c.parent_id]) replies[c.parent_id] = [];
+        replies[c.parent_id].push(c);
+      } else {
+        topLevel.push(c);
+      }
+    });
+
+    var html = '';
+    topLevel.forEach(function(c) {
+      html += renderCommentItem(c, replies);
+    });
+    el.innerHTML = html;
+  }
+
+  function loadComments() {
+    fetch(api + '?post_id=' + encodeURIComponent(slug) + '&lang=' + lang)
+      .then(function(r) { return r.json(); })
+      .then(function(d) { renderComments(d.comments); })
+      .catch(function() {});
+  }
+
+  loadComments();
+
+  document.getElementById('comment-list').addEventListener('click', function(e) {
+    var target = e.target;
+
+    if (target.classList.contains('comment-reply-btn')) {
+      e.preventDefault();
+      var id = target.getAttribute('data-id');
+      var form = document.getElementById('reply-form-' + id);
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-cancel')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      document.getElementById('reply-form-' + pid).style.display = 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-submit')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      var author = document.getElementById('ra-' + pid).value.trim();
+      var content = document.getElementById('rc-' + pid).value.trim();
+      var msgEl = document.getElementById('rm-' + pid);
+
+      if (!author || !content) {
+        msgEl.textContent = L.fill_required;
+        return;
+      }
+
+      msgEl.textContent = L.submitting;
+      var body = 'post_id=' + encodeURIComponent(slug)
+        + '&author=' + encodeURIComponent(author)
+        + '&content=' + encodeURIComponent(content)
+        + '&parent_id=' + encodeURIComponent(pid)
+        + '&lang=' + lang
+        + '&_website=';
+
+      fetch(api, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      }).then(function(r) {
+        if (r.ok) {
+          document.getElementById('reply-form-' + pid).style.display = 'none';
+          document.getElementById('ra-' + pid).value = '';
+          document.getElementById('rc-' + pid).value = '';
+          msgEl.textContent = '';
+          loadComments();
+        } else if (r.status === 429) {
+          msgEl.textContent = L.reply_too_frequent;
+        } else {
+          msgEl.textContent = L.reply_failed;
+        }
+      }).catch(function() {
+        msgEl.textContent = L.network_error;
+      });
+      return;
+    }
+  });
+
+  window.submitComment = function(e) {
+    e.preventDefault();
+    var author = document.getElementById('comment-author').value.trim();
+    var content = document.getElementById('comment-content').value.trim();
+    var msgEl = document.getElementById('comment-msg');
+    if (!author || !content) {
+      msgEl.textContent = L.fill_required;
+      return false;
+    }
+    msgEl.textContent = L.submitting;
+    var body = 'post_id=' + encodeURIComponent(slug)
+      + '&author=' + encodeURIComponent(author)
+      + '&content=' + encodeURIComponent(content)
+      + '&lang=' + lang
+      + '&_website=';
+    fetch(api, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    }).then(function(r) {
+      if (r.ok) {
+        document.getElementById('comment-author').value = '';
+        document.getElementById('comment-content').value = '';
+        msgEl.textContent = L.success;
+        loadComments();
+      } else if (r.status === 429) {
+        msgEl.textContent = L.comment_too_frequent;
+      } else {
+        msgEl.textContent = L.comment_failed;
+      }
+    }).catch(function() {
+      msgEl.textContent = L.network_error;
+    });
+    return false;
+  };
+})();
+</script>
+
+<style>
+.comment-section { margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd; }
+.comment-title { font-size: 20px; margin-bottom: 20px; }
+.comment-empty { color: #999; font-size: 14px; }
+.comment-item { padding: 12px 0; border-bottom: 1px solid #eee; }
+.comment-meta { margin-bottom: 6px; }
+.comment-author { font-weight: bold; color: #333; margin-right: 12px; }
+.comment-time { color: #999; font-size: 12px; }
+.comment-body { color: #555; font-size: 14px; line-height: 1.6; word-break: break-all; }
+.comment-actions { margin-top: 6px; }
+.comment-reply-btn { color: #258fb8; font-size: 13px; text-decoration: none; cursor: pointer; }
+.comment-reply-btn:hover { text-decoration: underline; }
+.comment-reply { margin-left: 40px; padding-left: 16px; border-left: 3px solid #258fb8; background: #fafafa; }
+.comment-reply .comment-item { border-bottom: none; }
+.comment-reply-to { color: #999; font-size: 12px; margin: 0 8px; }
+.comment-reply-form { margin-top: 10px; padding: 12px; background: #f9f9f9; border-radius: 4px; }
+.comment-reply-form input,
+.comment-reply-form textarea {
+  width: 100%; padding: 6px 8px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 13px; box-sizing: border-box; outline: none; margin-bottom: 8px;
+}
+.comment-reply-form input:focus,
+.comment-reply-form textarea:focus { border-color: #258fb8; }
+.comment-reply-form textarea { resize: vertical; }
+.reply-submit { background: #258fb8; color: #fff; border: none; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; margin-right: 8px; }
+.reply-submit:hover { background: #1e7a9b; }
+.reply-cancel { background: #fff; color: #999; border: 1px solid #ccc; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; }
+.reply-cancel:hover { color: #555; border-color: #999; }
+.reply-msg { margin-left: 10px; font-size: 13px; color: #999; }
+.comment-form-wrap { margin-top: 24px; }
+.comment-form-wrap h4 { font-size: 16px; margin-bottom: 12px; }
+.comment-field { margin-bottom: 10px; }
+.comment-field input,
+.comment-field textarea {
+  width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 14px; box-sizing: border-box; outline: none;
+}
+.comment-field input:focus,
+.comment-field textarea:focus { border-color: #258fb8; }
+.comment-field textarea { resize: vertical; }
+.comment-submit {
+  background: #258fb8; color: #fff; border: none; padding: 8px 20px;
+  border-radius: 4px; font-size: 14px; cursor: pointer;
+}
+.comment-submit:hover { background: #1e7a9b; }
+#comment-msg { margin-left: 10px; font-size: 14px; color: #999; }
+</style>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/en/categories/Operations/">Operations</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/en/categories/Operations/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/en/categories/Operations/VMware/">VMware</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/en/archives/2026/07/">July 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/en/archives/2026/06/">June 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/en/2026/07/20/an-incident-recall/">An Incident Recall</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/07/05/miscellaneous/">Miscellaneous</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/06/27/linux-enable-serial-login/">Enable Serial Login on Linux</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/06/27/self-signed-ssl-certificate/">Quick Self-Signed SSL Certificate</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/06/24/vmware-esxi-common-commands/">VMware ESXi Common Commands</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="friend-links" class="inner">
+      <h3>Friend Links</h3>
+      <a href="https://blog.topcaver.com/" target="_blank" rel="noopener noreferrer">Topcaver</a>
+      <a href="https://nti.nsfocus.com/" target="_blank" rel="noopener noreferrer">绿盟威胁情报nti</a>
+      <a href="https://www.alimama.com/index.htm" target="_blank" rel="noopener noreferrer">阿里妈妈</a>
+    </div>
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 ZQ wang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/en/" class="mobile-nav-link">Home</a>
+  
+    <a href="/en/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/en/AboutMe" class="mobile-nav-link">About Me</a>
+  
+    <a href="/en/NewApiEdu" class="mobile-nav-link">NewApi</a>
+  
+    <a href="/en/links" class="mobile-nav-link">Links</a>
+  
+    <a href="/en/ideas" class="mobile-nav-link">Ideas</a>
+  
+</nav>
+    
+
+<a id="back-to-top" class="fa fa-chevron-up" title="回到顶部"></a>
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

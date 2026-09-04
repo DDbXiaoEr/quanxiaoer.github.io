@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}})();
+  </script>
+  
+  
+  <title>NewApi二开 | 泉的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="(仓库地址)[https:&#x2F;&#x2F;gitee.com&#x2F;ddbxiaoer&#x2F;newapi_2_-edu欢迎各位有闲情逸致的 朋友一起来玩 简介这个项目的起因是原本是我出血后和兄弟商量着试着做一个token的二道贩子赚点外快。后面发现不太好整，我在学用ai的过程中越来越觉得ai的潜力巨大，于是想着能不能做点事情，让还在上学的学弟学妹们能更方便的跟上这个时代。于是就有了这个项目。基于 NEWAPI 的高校定">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NewApi二开">
+<meta property="og:url" content="http://blog.quanxiaoer.me/NewApiEdu/index.html">
+<meta property="og:site_name" content="泉的blog">
+<meta property="og:description" content="(仓库地址)[https:&#x2F;&#x2F;gitee.com&#x2F;ddbxiaoer&#x2F;newapi_2_-edu欢迎各位有闲情逸致的 朋友一起来玩 简介这个项目的起因是原本是我出血后和兄弟商量着试着做一个token的二道贩子赚点外快。后面发现不太好整，我在学用ai的过程中越来越觉得ai的潜力巨大，于是想着能不能做点事情，让还在上学的学弟学妹们能更方便的跟上这个时代。于是就有了这个项目。基于 NEWAPI 的高校定">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-28T08:11:13.062Z">
+<meta property="article:author" content="ZQ wang">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="泉的blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">泉的blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/AboutMe">AboutMe</a>
+        
+          <a class="main-nav-link" href="/NewApiEdu">NewApi二开</a>
+        
+          <a class="main-nav-link" href="/links">友情链接</a>
+        
+          <a class="main-nav-link" href="/ideas">乱七八糟的想法</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a id="theme-toggle" class="nav-icon" title="切换主题"><span class="fa fa-moon-o"></span></a>
+        <a id="lang-switch" class="nav-icon" href="/en/NewApiEdu/" title="Switch to English"><span class="lang-switch-text">EN</span></a>
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.quanxiaoer.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/NewApiEdu/index.html" class="article-date">
+  <time class="dt-published" datetime="2026-06-24T16:00:00.000Z" itemprop="datePublished">2026-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      NewApi二开
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>(仓库地址)[<a target="_blank" rel="noopener" href="https://gitee.com/ddbxiaoer/newapi_2_-edu">https://gitee.com/ddbxiaoer/newapi_2_-edu</a><br>欢迎各位有闲情逸致的 朋友一起来玩</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这个项目的起因是原本是我出血后和兄弟商量着试着做一个token的二道贩子赚点外快。后面发现不太好整，我在学用ai的过程中越来越觉得ai的潜力巨大，于是想着能不能做点事情，让还在上学的学弟学妹们能更方便的跟上这个时代。于是就有了这个项目。<br>基于 <a target="_blank" rel="noopener" href="https://github.com/QuantumNous/new-api">NEWAPI</a> 的<strong>高校定制版</strong>，一个 AI API 网关与 AI 资产管理平台。</p>
+<h2 id="高校定制特性"><a href="#高校定制特性" class="headerlink" title="高校定制特性"></a>高校定制特性</h2><ul>
+<li><strong>校园身份认证</strong>（已完成）：支持学号&#x2F;工号登录</li>
+<li><strong>课程管理</strong>（规划中）：按课程分配 AI 使用权限</li>
+<li><strong>教师管理</strong>（规划中）：教师管理班级学生</li>
+<li><strong>教学统计</strong>（规划中）：AI 使用数据分析</li>
+<li><strong>安全审计</strong>（规划中）：操作日志与审计</li>
+<li><strong>校园网适配</strong>（规划中）：内网优化、代理&#x2F;防火墙</li>
+</ul>
+<p>**为什么一堆规划中，因为我也不知道做成什么样子算好，自己试用感觉其实差不多了。</p>
+<ol start="2">
+<li>由于没工作没收入，前期token全靠各大平台新用户额度和邀请赠送。因为给ai搭台子（给ai准备测试环境和数据也是需要ai来做一部分的，我已经是条咸鱼了），<br>感谢deepseek。充了400表示一下（目前还没用到一半，尽量省 了，我都是尽量先用免费额度）<br>3.雷总的百亿 福利没申请到。</li>
+<li>没有测试的完整高校或者企业环境。不知道vibe 什么内容去对接什么系统</li>
+</ol>
+<p>5.每天要去医院，在电脑前的时间不够。 </p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>层级</th>
+<th>技术</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>后端</td>
+<td>Go + Gin + GORM</td>
+</tr>
+<tr>
+<td>前端</td>
+<td>React 18 + Vite 5 + Semi Design</td>
+</tr>
+<tr>
+<td>数据库</td>
+<td>SQLite &#x2F; MySQL &#x2F; PostgreSQL</td>
+</tr>
+<tr>
+<td>缓存</td>
+<td>Redis</td>
+</tr>
+<tr>
+<td>认证</td>
+<td>JWT &#x2F; OAuth &#x2F; LDAP</td>
+</tr>
+<tr>
+<td>国际化</td>
+<td>中 &#x2F; 英 &#x2F; 法 &#x2F; 日等</td>
+</tr>
+</tbody></table>
+<h2 id="提交记录"><a href="#提交记录" class="headerlink" title="提交记录"></a>提交记录</h2><table>
+<thead>
+<tr>
+<th>提交 Hash</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>74cbead</code></td>
+<td>新增：LDAP&#x2F;CAS 认证及 syslog 设置相关章节</td>
+</tr>
+<tr>
+<td><code>50f1420</code></td>
+<td>修复：启用 LDAP 时放宽密码长度校验</td>
+</tr>
+<tr>
+<td><code>9c66423</code></td>
+<td>维护：后端二进制输出到 build&#x2F; 目录</td>
+</tr>
+<tr>
+<td><code>449eea5</code></td>
+<td>修复：防止 syslog 连接不可达服务器时阻塞启动</td>
+</tr>
+<tr>
+<td><code>af8623d</code></td>
+<td>维护：更新 agent 规则</td>
+</tr>
+<tr>
+<td><code>3d42c8b</code></td>
+<td>维护：新增 PROJECT_STRUCTURE.md，更新 AGENTS.md，应用前端代码风格 lint</td>
+</tr>
+<tr>
+<td><code>303528a</code></td>
+<td>重构：将 CAS 提取为独立侧边栏模块（与 LDAP 同级）</td>
+</tr>
+<tr>
+<td><code>a1163fd</code></td>
+<td>优化：用 handler map 替换 updateOptionMap 中的 switch&#x2F;case 实现 O(1) 调度</td>
+</tr>
+<tr>
+<td><code>4d088fa</code></td>
+<td>新增：CAS（中央认证服务）登录支持</td>
+</tr>
+<tr>
+<td><code>b4b0f6e</code></td>
+<td>新增：arm64 Linux 构建目标及构建文档</td>
+</tr>
+<tr>
+<td><code>d3d052d</code></td>
+<td>新增：InitResources 中按模块显示启动耗时</td>
+</tr>
+<tr>
+<td><code>c59355b</code></td>
+<td>新增：添加 &#x2F;api&#x2F;rankings 后端排行榜接口</td>
+</tr>
+<tr>
+<td><code>c7adcf5</code></td>
+<td>新增：系统设置认证页面添加 LDAP 配置界面</td>
+</tr>
+<tr>
+<td><code>290da05</code></td>
+<td>维护：将 classic&#x2F;default 构建产物和 node_modules 添加到 .gitignore，取消追踪 dist 目录</td>
+</tr>
+<tr>
+<td><code>2474ddb</code></td>
+<td>重构：将前端拆分为 classic&#x2F;default 两个变体，更新内嵌路径</td>
+</tr>
+<tr>
+<td><code>c2be24d</code></td>
+<td>重构：将 syslog 设置从运维设置移至系统设置</td>
+</tr>
+<tr>
+<td><code>712267b</code></td>
+<td>修复：防止 syslog writer 空指针引用</td>
+</tr>
+<tr>
+<td><code>25fe51a</code></td>
+<td>新增：syslog 日志输出支持及管理后台 UI 配置</td>
+</tr>
+<tr>
+<td><code>6c13870</code></td>
+<td>新增：渠道首选端点类型选择功能</td>
+</tr>
+<tr>
+<td><code>6475e94</code></td>
+<td>修复：移除小米 MiMo 默认 Base URL 中的 &#x2F;v1</td>
+</tr>
+<tr>
+<td><code>e412930</code></td>
+<td>新增：内置小米 MiMo 渠道（兼容 OpenAI 格式）</td>
+</tr>
+<tr>
+<td><code>f5639c9</code></td>
+<td>优化：简化首页按钮，移除控制台&#x2F;文档链接</td>
+</tr>
+<tr>
+<td><code>ab8371c</code></td>
+<td>移除：其他设置页面中检查更新功能</td>
+</tr>
+<tr>
+<td><code>07fa265</code></td>
+<td>优化：隐藏支付设置页签，清理时保留 node_modules</td>
+</tr>
+<tr>
+<td><code>8db518c</code></td>
+<td>Docker 中安装依赖</td>
+</tr>
+<tr>
+<td><code>3994a18</code></td>
+<td>新增：为 newapiedu 服务添加 nginx HTTPS 代理（自签名证书）</td>
+</tr>
+<tr>
+<td><code>eba74d8</code></td>
+<td>更新 go.mod 中的 Go 版本</td>
+</tr>
+<tr>
+<td><code>4f147d4</code></td>
+<td>新增：页脚添加二次开发署名及 V0ker 链接</td>
+</tr>
+<tr>
+<td><code>fac6a82</code></td>
+<td>新增：new-api.service 和 docker-compose.yml 环境变量配置</td>
+</tr>
+<tr>
+<td><code>5c37972</code></td>
+<td>修复：无效 JWT Token 返回 401 而非 200</td>
+</tr>
+<tr>
+<td><code>7739b4f</code></td>
+<td>文档：多语言 README 同步进度状态</td>
+</tr>
+<tr>
+<td><code>fd2f1e2</code></td>
+<td>修复：移除 ServerAddress 硬编码的 localhost:3000 默认值</td>
+</tr>
+<tr>
+<td><code>cf6ec31</code></td>
+<td>文档：README 添加 JWT_SECRET 和 JWT_EXPIRATION_SECONDS 环境变量说明</td>
+</tr>
+<tr>
+<td><code>69f88df</code></td>
+<td>重构：仪表盘用户认证从 Session 切换为 JWT Token</td>
+</tr>
+<tr>
+<td><code>b40b3c6</code></td>
+<td>重构：拆分 Dockerfile 并添加 docker-compose</td>
+</tr>
+<tr>
+<td><code>f4f6462</code></td>
+<td>添加 nginx 配置用于前端托管及后端代理</td>
+</tr>
+<tr>
+<td><code>b8e0ab7</code></td>
+<td>新增：纯后端构建目标（不含内嵌前端）</td>
+</tr>
+<tr>
+<td><code>7aba669</code></td>
+<td>新增：Dockerfile 添加系统依赖</td>
+</tr>
+<tr>
+<td><code>58b215a</code></td>
+<td>新增：添加 sources.list，更新 .gitignore 忽略构建产物</td>
+</tr>
+<tr>
+<td><code>5af1bde</code></td>
+<td>将二进制文件重命名为 newapi-edu，添加 Linux 构建目标</td>
+</tr>
+<tr>
+<td><code>cdd954e</code></td>
+<td>新增：Redis Session 存储支持多节点会话共享</td>
+</tr>
+<tr>
+<td><code>0d1c188</code></td>
+<td>优化：添加 .gitignore，移除 one-api.db 版本追踪</td>
+</tr>
+<tr>
+<td><code>227270a</code></td>
+<td>构建：通过 ldflags 注入 git describe 版本号，简化 Dockerfile</td>
+</tr>
+<tr>
+<td><code>247cfd3</code></td>
+<td>添加英文 README（高校定制版）</td>
+</tr>
+<tr>
+<td><code>6aae173</code></td>
+<td>多语言 README 与 zh_CN 高校版布局同步</td>
+</tr>
+<tr>
+<td><code>64863fb</code></td>
+<td>更新 README.zh_CN.md</td>
+</tr>
+<tr>
+<td><code>29d8401</code></td>
+<td>移除 README.md</td>
+</tr>
+<tr>
+<td><code>310dab4</code></td>
+<td>替换 README</td>
+</tr>
+<tr>
+<td><code>1d5d208</code></td>
+<td>更新 README.md</td>
+</tr>
+<tr>
+<td><code>6c1b980</code></td>
+<td>初始化提交 - 完整 new-api 项目（Go 后端 + React 前端）</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/NewApiEdu/index.html" data-id="cuidhfQZBdhMrUfN15EaWMMF3" data-title="NewApi二开" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+
+
+  <section id="comments" class="comment-section">
+  <h3 class="comment-title">评论</h3>
+  <div id="comment-list"></div>
+  <div class="comment-form-wrap">
+    <h4>发表评论</h4>
+    <form id="comment-form" onsubmit="return submitComment(event)">
+      <input type="text" name="_website" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="comment-field">
+        <input type="text" id="comment-author" name="author" placeholder="昵称 *" maxlength="32" required>
+      </div>
+      <div class="comment-field">
+        <textarea id="comment-content" name="content" placeholder="说点什么..." maxlength="1000" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="comment-submit">提交评论</button>
+      <span id="comment-msg"></span>
+    </form>
+  </div>
+</section>
+
+<script>
+(function() {
+  var api = 'https://blog.quanxiaoer.me/api/comments';
+  var slug = 'NewApiEdu/index.html';
+  var lang = 'zh';
+
+  var I18N = {
+    zh: {
+      reply: '回复',
+      write_reply: '写下你的回复...',
+      submit_reply: '提交回复',
+      cancel: '取消',
+      empty: '暂无评论，来说两句吧',
+      fill_required: '请填写昵称和内容',
+      submitting: '提交中...',
+      comment_too_frequent: '评论太频繁，请稍后再试',
+      comment_failed: '评论失败，请稍后重试',
+      reply_too_frequent: '回复太频繁，请稍后再试',
+      reply_failed: '回复失败，请稍后重试',
+      network_error: '网络错误，请稍后重试',
+      success: '评论成功'
+    },
+    en: {
+      reply: 'Reply',
+      write_reply: 'Write your reply...',
+      submit_reply: 'Submit',
+      cancel: 'Cancel',
+      empty: 'No comments yet. Be the first to comment.',
+      fill_required: 'Please fill in nickname and content',
+      submitting: 'Submitting...',
+      comment_too_frequent: 'Too many comments, please try again later',
+      comment_failed: 'Failed to post comment, please try again later',
+      reply_too_frequent: 'Too many replies, please try again later',
+      reply_failed: 'Failed to post reply, please try again later',
+      network_error: 'Network error, please try again later',
+      success: 'Comment posted'
+    }
+  };
+  var L = ('zh-CN' === 'en') ? I18N.en : I18N.zh;
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  function renderCommentItem(c, replies) {
+    var childReplies = replies[c.id] || [];
+    var html = '<div class="comment-item">'
+      + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(c.author) + '</span>'
+      + '<span class="comment-time">' + escapeHtml(c.created_at) + '</span></div>'
+      + '<div class="comment-body">' + escapeHtml(c.content) + '</div>'
+      + '<div class="comment-actions"><a href="javascript:void(0)" class="comment-reply-btn" data-id="' + c.id + '">' + L.reply + '</a></div>'
+      + '<div class="comment-reply-form" id="reply-form-' + c.id + '" style="display:none">'
+      + '<input type="text" class="reply-author" id="ra-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="32">'
+      + '<textarea class="reply-content" id="rc-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="1000" rows="3"></textarea>'
+      + '<button class="reply-submit" data-parent="' + c.id + '">' + L.submit_reply + '</button>'
+      + '<button class="reply-cancel" data-parent="' + c.id + '">' + L.cancel + '</button>'
+      + '<span class="reply-msg" id="rm-' + c.id + '"></span>'
+      + '</div>'
+      + '</div>';
+
+    childReplies.forEach(function(r) {
+      html += '<div class="comment-item comment-reply">'
+        + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(r.author) + '</span>'
+        + '<span class="comment-reply-to">' + L.reply + '</span>'
+        + '<span class="comment-time">' + escapeHtml(r.created_at) + '</span></div>'
+        + '<div class="comment-body">' + escapeHtml(r.content) + '</div>'
+        + '</div>';
+    });
+
+    return html;
+  }
+
+  function renderComments(comments) {
+    var el = document.getElementById('comment-list');
+    if (!comments || comments.length === 0) {
+      el.innerHTML = '<p class="comment-empty">' + L.empty + '</p>';
+      return;
+    }
+
+    var topLevel = [];
+    var replies = {};
+    comments.forEach(function(c) {
+      if (c.parent_id) {
+        if (!replies[c.parent_id]) replies[c.parent_id] = [];
+        replies[c.parent_id].push(c);
+      } else {
+        topLevel.push(c);
+      }
+    });
+
+    var html = '';
+    topLevel.forEach(function(c) {
+      html += renderCommentItem(c, replies);
+    });
+    el.innerHTML = html;
+  }
+
+  function loadComments() {
+    fetch(api + '?post_id=' + encodeURIComponent(slug) + '&lang=' + lang)
+      .then(function(r) { return r.json(); })
+      .then(function(d) { renderComments(d.comments); })
+      .catch(function() {});
+  }
+
+  loadComments();
+
+  document.getElementById('comment-list').addEventListener('click', function(e) {
+    var target = e.target;
+
+    if (target.classList.contains('comment-reply-btn')) {
+      e.preventDefault();
+      var id = target.getAttribute('data-id');
+      var form = document.getElementById('reply-form-' + id);
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-cancel')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      document.getElementById('reply-form-' + pid).style.display = 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-submit')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      var author = document.getElementById('ra-' + pid).value.trim();
+      var content = document.getElementById('rc-' + pid).value.trim();
+      var msgEl = document.getElementById('rm-' + pid);
+
+      if (!author || !content) {
+        msgEl.textContent = L.fill_required;
+        return;
+      }
+
+      msgEl.textContent = L.submitting;
+      var body = 'post_id=' + encodeURIComponent(slug)
+        + '&author=' + encodeURIComponent(author)
+        + '&content=' + encodeURIComponent(content)
+        + '&parent_id=' + encodeURIComponent(pid)
+        + '&lang=' + lang
+        + '&_website=';
+
+      fetch(api, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      }).then(function(r) {
+        if (r.ok) {
+          document.getElementById('reply-form-' + pid).style.display = 'none';
+          document.getElementById('ra-' + pid).value = '';
+          document.getElementById('rc-' + pid).value = '';
+          msgEl.textContent = '';
+          loadComments();
+        } else if (r.status === 429) {
+          msgEl.textContent = L.reply_too_frequent;
+        } else {
+          msgEl.textContent = L.reply_failed;
+        }
+      }).catch(function() {
+        msgEl.textContent = L.network_error;
+      });
+      return;
+    }
+  });
+
+  window.submitComment = function(e) {
+    e.preventDefault();
+    var author = document.getElementById('comment-author').value.trim();
+    var content = document.getElementById('comment-content').value.trim();
+    var msgEl = document.getElementById('comment-msg');
+    if (!author || !content) {
+      msgEl.textContent = L.fill_required;
+      return false;
+    }
+    msgEl.textContent = L.submitting;
+    var body = 'post_id=' + encodeURIComponent(slug)
+      + '&author=' + encodeURIComponent(author)
+      + '&content=' + encodeURIComponent(content)
+      + '&lang=' + lang
+      + '&_website=';
+    fetch(api, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    }).then(function(r) {
+      if (r.ok) {
+        document.getElementById('comment-author').value = '';
+        document.getElementById('comment-content').value = '';
+        msgEl.textContent = L.success;
+        loadComments();
+      } else if (r.status === 429) {
+        msgEl.textContent = L.comment_too_frequent;
+      } else {
+        msgEl.textContent = L.comment_failed;
+      }
+    }).catch(function() {
+      msgEl.textContent = L.network_error;
+    });
+    return false;
+  };
+})();
+</script>
+
+<style>
+.comment-section { margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd; }
+.comment-title { font-size: 20px; margin-bottom: 20px; }
+.comment-empty { color: #999; font-size: 14px; }
+.comment-item { padding: 12px 0; border-bottom: 1px solid #eee; }
+.comment-meta { margin-bottom: 6px; }
+.comment-author { font-weight: bold; color: #333; margin-right: 12px; }
+.comment-time { color: #999; font-size: 12px; }
+.comment-body { color: #555; font-size: 14px; line-height: 1.6; word-break: break-all; }
+.comment-actions { margin-top: 6px; }
+.comment-reply-btn { color: #258fb8; font-size: 13px; text-decoration: none; cursor: pointer; }
+.comment-reply-btn:hover { text-decoration: underline; }
+.comment-reply { margin-left: 40px; padding-left: 16px; border-left: 3px solid #258fb8; background: #fafafa; }
+.comment-reply .comment-item { border-bottom: none; }
+.comment-reply-to { color: #999; font-size: 12px; margin: 0 8px; }
+.comment-reply-form { margin-top: 10px; padding: 12px; background: #f9f9f9; border-radius: 4px; }
+.comment-reply-form input,
+.comment-reply-form textarea {
+  width: 100%; padding: 6px 8px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 13px; box-sizing: border-box; outline: none; margin-bottom: 8px;
+}
+.comment-reply-form input:focus,
+.comment-reply-form textarea:focus { border-color: #258fb8; }
+.comment-reply-form textarea { resize: vertical; }
+.reply-submit { background: #258fb8; color: #fff; border: none; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; margin-right: 8px; }
+.reply-submit:hover { background: #1e7a9b; }
+.reply-cancel { background: #fff; color: #999; border: 1px solid #ccc; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; }
+.reply-cancel:hover { color: #555; border-color: #999; }
+.reply-msg { margin-left: 10px; font-size: 13px; color: #999; }
+.comment-form-wrap { margin-top: 24px; }
+.comment-form-wrap h4 { font-size: 16px; margin-bottom: 12px; }
+.comment-field { margin-bottom: 10px; }
+.comment-field input,
+.comment-field textarea {
+  width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 14px; box-sizing: border-box; outline: none;
+}
+.comment-field input:focus,
+.comment-field textarea:focus { border-color: #258fb8; }
+.comment-field textarea { resize: vertical; }
+.comment-submit {
+  background: #258fb8; color: #fff; border: none; padding: 8px 20px;
+  border-radius: 4px; font-size: 14px; cursor: pointer;
+}
+.comment-submit:hover { background: #1e7a9b; }
+#comment-msg { margin-left: 10px; font-size: 14px; color: #999; }
+</style>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/operations-experience/">运维经验记录</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/operations-experience/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/operations-experience/vmware/">vmware</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">七月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/07/20/%E4%B8%80%E6%AC%A1%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%9B%9E%E5%BF%86/">一次事件处理回忆</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/05/%E6%9D%82%E9%A1%B9/">杂项</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/27/linux%E5%BC%80%E5%90%AFserial%E7%99%BB%E9%99%86%E6%93%8D%E4%BD%9C/">linux开启serial登陆操作</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/27/ssl%E8%AF%81%E4%B9%A6%E8%87%AA%E7%AD%BE%E5%90%8D%E5%BF%AB%E6%8D%B7%E5%88%B6%E4%BD%9C/">ssl证书自签名快捷制作</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/24/vmware-esxi-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">VMware ESXi 常用命令</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="friend-links" class="inner">
+      <h3>友情链接</h3>
+      <a href="https://blog.topcaver.com/" target="_blank" rel="noopener noreferrer">Topcaver</a>
+      <a href="https://nti.nsfocus.com/" target="_blank" rel="noopener noreferrer">绿盟威胁情报nti</a>
+      <a href="https://www.alimama.com/index.htm" target="_blank" rel="noopener noreferrer">阿里妈妈</a>
+    </div>
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 ZQ wang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/AboutMe" class="mobile-nav-link">AboutMe</a>
+  
+    <a href="/NewApiEdu" class="mobile-nav-link">NewApi二开</a>
+  
+    <a href="/links" class="mobile-nav-link">友情链接</a>
+  
+    <a href="/ideas" class="mobile-nav-link">乱七八糟的想法</a>
+  
+</nav>
+    
+
+<a id="back-to-top" class="fa fa-chevron-up" title="回到顶部"></a>
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

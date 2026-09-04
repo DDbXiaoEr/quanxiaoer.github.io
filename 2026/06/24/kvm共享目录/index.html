@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}})();
+  </script>
+  
+  
+  <title>kvm共享目录 | 泉的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="KVM 共享目录 Host OS1234&lt;filesystem type&#x3D;&#x27;mount&#x27; accessmode&#x3D;&#x27;mapped&#x27;&gt;    &lt;source dir&#x3D;&#x27;&#x2F;tmp&#x2F;shared&#x27;&#x2F;&gt;    &lt;target dir&#x3D;&#x27;tag&#x27;&#x2F;&gt;&lt;&#x2F;filesystem&gt;  Gu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kvm共享目录">
+<meta property="og:url" content="http://blog.quanxiaoer.me/2026/06/24/kvm%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95/index.html">
+<meta property="og:site_name" content="泉的blog">
+<meta property="og:description" content="KVM 共享目录 Host OS1234&lt;filesystem type&#x3D;&#x27;mount&#x27; accessmode&#x3D;&#x27;mapped&#x27;&gt;    &lt;source dir&#x3D;&#x27;&#x2F;tmp&#x2F;shared&#x27;&#x2F;&gt;    &lt;target dir&#x3D;&#x27;tag&#x27;&#x2F;&gt;&lt;&#x2F;filesystem&gt;  Gu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-24T09:10:00.000Z">
+<meta property="article:modified_time" content="2026-06-24T09:57:17.223Z">
+<meta property="article:author" content="ZQ wang">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="泉的blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">泉的blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/AboutMe">AboutMe</a>
+        
+          <a class="main-nav-link" href="/NewApiEdu">NewApi二开</a>
+        
+          <a class="main-nav-link" href="/links">友情链接</a>
+        
+          <a class="main-nav-link" href="/ideas">乱七八糟的想法</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a id="theme-toggle" class="nav-icon" title="切换主题"><span class="fa fa-moon-o"></span></a>
+        <a id="lang-switch" class="nav-icon" href="/en/2026/06/24/kvm-shared-directory/" title="Switch to English"><span class="lang-switch-text">EN</span></a>
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.quanxiaoer.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-kvm共享目录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/06/24/kvm%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95/" class="article-date">
+  <time class="dt-published" datetime="2026-06-24T09:10:00.000Z" itemprop="datePublished">2026-06-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/operations-experience/">运维经验记录</a>►<a class="article-category-link" href="/categories/operations-experience/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      kvm共享目录
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>KVM 共享目录</p>
+<h1 id="Host-OS"><a href="#Host-OS" class="headerlink" title="Host OS"></a>Host OS</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;filesystem type=&#x27;mount&#x27; accessmode=&#x27;mapped&#x27;&gt;</span><br><span class="line">    &lt;source dir=&#x27;/tmp/shared&#x27;/&gt;</span><br><span class="line">    &lt;target dir=&#x27;tag&#x27;/&gt;</span><br><span class="line">&lt;/filesystem&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Guest-Os"><a href="#Guest-Os" class="headerlink" title="Guest Os"></a>Guest Os</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t 9p -o trans=virtio,version=9p2000.L tag /mnt/shared/</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/2026/06/24/kvm%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95/" data-id="cuidFFYRXKkUVRtmVITFbpyTg" data-title="kvm共享目录" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/06/24/vmware-esxi-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          VMware ESXi 常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/06/24/Kylinos-KVM-aarch64-%E5%88%9B%E5%BB%BAuefi%E8%99%9A%E6%8B%9F%E6%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Kylinos KVM aarch64 创建uefi虚拟机</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments" class="comment-section">
+  <h3 class="comment-title">评论</h3>
+  <div id="comment-list"></div>
+  <div class="comment-form-wrap">
+    <h4>发表评论</h4>
+    <form id="comment-form" onsubmit="return submitComment(event)">
+      <input type="text" name="_website" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="comment-field">
+        <input type="text" id="comment-author" name="author" placeholder="昵称 *" maxlength="32" required>
+      </div>
+      <div class="comment-field">
+        <textarea id="comment-content" name="content" placeholder="说点什么..." maxlength="1000" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="comment-submit">提交评论</button>
+      <span id="comment-msg"></span>
+    </form>
+  </div>
+</section>
+
+<script>
+(function() {
+  var api = 'https://blog.quanxiaoer.me/api/comments';
+  var slug = 'kvm共享目录';
+  var lang = 'zh';
+
+  var I18N = {
+    zh: {
+      reply: '回复',
+      write_reply: '写下你的回复...',
+      submit_reply: '提交回复',
+      cancel: '取消',
+      empty: '暂无评论，来说两句吧',
+      fill_required: '请填写昵称和内容',
+      submitting: '提交中...',
+      comment_too_frequent: '评论太频繁，请稍后再试',
+      comment_failed: '评论失败，请稍后重试',
+      reply_too_frequent: '回复太频繁，请稍后再试',
+      reply_failed: '回复失败，请稍后重试',
+      network_error: '网络错误，请稍后重试',
+      success: '评论成功'
+    },
+    en: {
+      reply: 'Reply',
+      write_reply: 'Write your reply...',
+      submit_reply: 'Submit',
+      cancel: 'Cancel',
+      empty: 'No comments yet. Be the first to comment.',
+      fill_required: 'Please fill in nickname and content',
+      submitting: 'Submitting...',
+      comment_too_frequent: 'Too many comments, please try again later',
+      comment_failed: 'Failed to post comment, please try again later',
+      reply_too_frequent: 'Too many replies, please try again later',
+      reply_failed: 'Failed to post reply, please try again later',
+      network_error: 'Network error, please try again later',
+      success: 'Comment posted'
+    }
+  };
+  var L = ('zh-CN' === 'en') ? I18N.en : I18N.zh;
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  function renderCommentItem(c, replies) {
+    var childReplies = replies[c.id] || [];
+    var html = '<div class="comment-item">'
+      + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(c.author) + '</span>'
+      + '<span class="comment-time">' + escapeHtml(c.created_at) + '</span></div>'
+      + '<div class="comment-body">' + escapeHtml(c.content) + '</div>'
+      + '<div class="comment-actions"><a href="javascript:void(0)" class="comment-reply-btn" data-id="' + c.id + '">' + L.reply + '</a></div>'
+      + '<div class="comment-reply-form" id="reply-form-' + c.id + '" style="display:none">'
+      + '<input type="text" class="reply-author" id="ra-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="32">'
+      + '<textarea class="reply-content" id="rc-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="1000" rows="3"></textarea>'
+      + '<button class="reply-submit" data-parent="' + c.id + '">' + L.submit_reply + '</button>'
+      + '<button class="reply-cancel" data-parent="' + c.id + '">' + L.cancel + '</button>'
+      + '<span class="reply-msg" id="rm-' + c.id + '"></span>'
+      + '</div>'
+      + '</div>';
+
+    childReplies.forEach(function(r) {
+      html += '<div class="comment-item comment-reply">'
+        + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(r.author) + '</span>'
+        + '<span class="comment-reply-to">' + L.reply + '</span>'
+        + '<span class="comment-time">' + escapeHtml(r.created_at) + '</span></div>'
+        + '<div class="comment-body">' + escapeHtml(r.content) + '</div>'
+        + '</div>';
+    });
+
+    return html;
+  }
+
+  function renderComments(comments) {
+    var el = document.getElementById('comment-list');
+    if (!comments || comments.length === 0) {
+      el.innerHTML = '<p class="comment-empty">' + L.empty + '</p>';
+      return;
+    }
+
+    var topLevel = [];
+    var replies = {};
+    comments.forEach(function(c) {
+      if (c.parent_id) {
+        if (!replies[c.parent_id]) replies[c.parent_id] = [];
+        replies[c.parent_id].push(c);
+      } else {
+        topLevel.push(c);
+      }
+    });
+
+    var html = '';
+    topLevel.forEach(function(c) {
+      html += renderCommentItem(c, replies);
+    });
+    el.innerHTML = html;
+  }
+
+  function loadComments() {
+    fetch(api + '?post_id=' + encodeURIComponent(slug) + '&lang=' + lang)
+      .then(function(r) { return r.json(); })
+      .then(function(d) { renderComments(d.comments); })
+      .catch(function() {});
+  }
+
+  loadComments();
+
+  document.getElementById('comment-list').addEventListener('click', function(e) {
+    var target = e.target;
+
+    if (target.classList.contains('comment-reply-btn')) {
+      e.preventDefault();
+      var id = target.getAttribute('data-id');
+      var form = document.getElementById('reply-form-' + id);
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-cancel')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      document.getElementById('reply-form-' + pid).style.display = 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-submit')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      var author = document.getElementById('ra-' + pid).value.trim();
+      var content = document.getElementById('rc-' + pid).value.trim();
+      var msgEl = document.getElementById('rm-' + pid);
+
+      if (!author || !content) {
+        msgEl.textContent = L.fill_required;
+        return;
+      }
+
+      msgEl.textContent = L.submitting;
+      var body = 'post_id=' + encodeURIComponent(slug)
+        + '&author=' + encodeURIComponent(author)
+        + '&content=' + encodeURIComponent(content)
+        + '&parent_id=' + encodeURIComponent(pid)
+        + '&lang=' + lang
+        + '&_website=';
+
+      fetch(api, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      }).then(function(r) {
+        if (r.ok) {
+          document.getElementById('reply-form-' + pid).style.display = 'none';
+          document.getElementById('ra-' + pid).value = '';
+          document.getElementById('rc-' + pid).value = '';
+          msgEl.textContent = '';
+          loadComments();
+        } else if (r.status === 429) {
+          msgEl.textContent = L.reply_too_frequent;
+        } else {
+          msgEl.textContent = L.reply_failed;
+        }
+      }).catch(function() {
+        msgEl.textContent = L.network_error;
+      });
+      return;
+    }
+  });
+
+  window.submitComment = function(e) {
+    e.preventDefault();
+    var author = document.getElementById('comment-author').value.trim();
+    var content = document.getElementById('comment-content').value.trim();
+    var msgEl = document.getElementById('comment-msg');
+    if (!author || !content) {
+      msgEl.textContent = L.fill_required;
+      return false;
+    }
+    msgEl.textContent = L.submitting;
+    var body = 'post_id=' + encodeURIComponent(slug)
+      + '&author=' + encodeURIComponent(author)
+      + '&content=' + encodeURIComponent(content)
+      + '&lang=' + lang
+      + '&_website=';
+    fetch(api, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    }).then(function(r) {
+      if (r.ok) {
+        document.getElementById('comment-author').value = '';
+        document.getElementById('comment-content').value = '';
+        msgEl.textContent = L.success;
+        loadComments();
+      } else if (r.status === 429) {
+        msgEl.textContent = L.comment_too_frequent;
+      } else {
+        msgEl.textContent = L.comment_failed;
+      }
+    }).catch(function() {
+      msgEl.textContent = L.network_error;
+    });
+    return false;
+  };
+})();
+</script>
+
+<style>
+.comment-section { margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd; }
+.comment-title { font-size: 20px; margin-bottom: 20px; }
+.comment-empty { color: #999; font-size: 14px; }
+.comment-item { padding: 12px 0; border-bottom: 1px solid #eee; }
+.comment-meta { margin-bottom: 6px; }
+.comment-author { font-weight: bold; color: #333; margin-right: 12px; }
+.comment-time { color: #999; font-size: 12px; }
+.comment-body { color: #555; font-size: 14px; line-height: 1.6; word-break: break-all; }
+.comment-actions { margin-top: 6px; }
+.comment-reply-btn { color: #258fb8; font-size: 13px; text-decoration: none; cursor: pointer; }
+.comment-reply-btn:hover { text-decoration: underline; }
+.comment-reply { margin-left: 40px; padding-left: 16px; border-left: 3px solid #258fb8; background: #fafafa; }
+.comment-reply .comment-item { border-bottom: none; }
+.comment-reply-to { color: #999; font-size: 12px; margin: 0 8px; }
+.comment-reply-form { margin-top: 10px; padding: 12px; background: #f9f9f9; border-radius: 4px; }
+.comment-reply-form input,
+.comment-reply-form textarea {
+  width: 100%; padding: 6px 8px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 13px; box-sizing: border-box; outline: none; margin-bottom: 8px;
+}
+.comment-reply-form input:focus,
+.comment-reply-form textarea:focus { border-color: #258fb8; }
+.comment-reply-form textarea { resize: vertical; }
+.reply-submit { background: #258fb8; color: #fff; border: none; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; margin-right: 8px; }
+.reply-submit:hover { background: #1e7a9b; }
+.reply-cancel { background: #fff; color: #999; border: 1px solid #ccc; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; }
+.reply-cancel:hover { color: #555; border-color: #999; }
+.reply-msg { margin-left: 10px; font-size: 13px; color: #999; }
+.comment-form-wrap { margin-top: 24px; }
+.comment-form-wrap h4 { font-size: 16px; margin-bottom: 12px; }
+.comment-field { margin-bottom: 10px; }
+.comment-field input,
+.comment-field textarea {
+  width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 14px; box-sizing: border-box; outline: none;
+}
+.comment-field input:focus,
+.comment-field textarea:focus { border-color: #258fb8; }
+.comment-field textarea { resize: vertical; }
+.comment-submit {
+  background: #258fb8; color: #fff; border: none; padding: 8px 20px;
+  border-radius: 4px; font-size: 14px; cursor: pointer;
+}
+.comment-submit:hover { background: #1e7a9b; }
+#comment-msg { margin-left: 10px; font-size: 14px; color: #999; }
+</style>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/operations-experience/">运维经验记录</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/operations-experience/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/operations-experience/vmware/">vmware</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">七月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/07/20/%E4%B8%80%E6%AC%A1%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%9B%9E%E5%BF%86/">一次事件处理回忆</a>
+          </li>
+        
+          <li>
+            <a href="/2026/07/05/%E6%9D%82%E9%A1%B9/">杂项</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/27/linux%E5%BC%80%E5%90%AFserial%E7%99%BB%E9%99%86%E6%93%8D%E4%BD%9C/">linux开启serial登陆操作</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/27/ssl%E8%AF%81%E4%B9%A6%E8%87%AA%E7%AD%BE%E5%90%8D%E5%BF%AB%E6%8D%B7%E5%88%B6%E4%BD%9C/">ssl证书自签名快捷制作</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/24/vmware-esxi-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">VMware ESXi 常用命令</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="friend-links" class="inner">
+      <h3>友情链接</h3>
+      <a href="https://blog.topcaver.com/" target="_blank" rel="noopener noreferrer">Topcaver</a>
+      <a href="https://nti.nsfocus.com/" target="_blank" rel="noopener noreferrer">绿盟威胁情报nti</a>
+      <a href="https://www.alimama.com/index.htm" target="_blank" rel="noopener noreferrer">阿里妈妈</a>
+    </div>
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 ZQ wang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/AboutMe" class="mobile-nav-link">AboutMe</a>
+  
+    <a href="/NewApiEdu" class="mobile-nav-link">NewApi二开</a>
+  
+    <a href="/links" class="mobile-nav-link">友情链接</a>
+  
+    <a href="/ideas" class="mobile-nav-link">乱七八糟的想法</a>
+  
+</nav>
+    
+
+<a id="back-to-top" class="fa fa-chevron-up" title="回到顶部"></a>
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

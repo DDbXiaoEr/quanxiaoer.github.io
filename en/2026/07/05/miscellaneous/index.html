@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}})();
+  </script>
+  
+  
+  <title>Miscellaneous | 泉的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="dmidecodeCheck the system hardware architecture (if it is a VM, it shows the VM type: VMware or another platform).On non-VMware systems (VMware can be identified by the NIC MAC), it can be used to tel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Miscellaneous">
+<meta property="og:url" content="http://blog.quanxiaoer.me/en/2026/07/05/miscellaneous/index.html">
+<meta property="og:site_name" content="泉的blog">
+<meta property="og:description" content="dmidecodeCheck the system hardware architecture (if it is a VM, it shows the VM type: VMware or another platform).On non-VMware systems (VMware can be identified by the NIC MAC), it can be used to tel">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-07-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-30T08:57:59.223Z">
+<meta property="article:author" content="ZQ wang">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="泉的blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/en/" id="logo">泉的blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/en/">Home</a>
+        
+          <a class="main-nav-link" href="/en/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/en/AboutMe">About Me</a>
+        
+          <a class="main-nav-link" href="/en/NewApiEdu">NewApi</a>
+        
+          <a class="main-nav-link" href="/en/links">Links</a>
+        
+          <a class="main-nav-link" href="/en/ideas">Ideas</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a id="theme-toggle" class="nav-icon" title="切换主题"><span class="fa fa-moon-o"></span></a>
+        <a id="lang-switch" class="nav-icon" href="/2026/07/05/%E6%9D%82%E9%A1%B9/" title="切换为中文"><span class="lang-switch-text">中文</span></a>
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.quanxiaoer.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-miscellaneous" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/07/05/miscellaneous/" class="article-date">
+  <time class="dt-published" datetime="2026-07-04T16:00:00.000Z" itemprop="datePublished">2026-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Miscellaneous
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="dmidecode"><a href="#dmidecode" class="headerlink" title="dmidecode"></a>dmidecode</h2><p>Check the system hardware architecture (if it is a VM, it shows the VM type: VMware or another platform).<br>On non-VMware systems (VMware can be identified by the NIC MAC), it can be used to tell whether the system is physical or virtual.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># dmidecode -s system-manufacturer</span><br><span class="line">VMware, Inc.</span><br></pre></td></tr></table></figure>
+<p>Check memory DIMM info:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># dmidecode -t memory</span><br><span class="line">Memory Device</span><br><span class="line">        Array Handle: 0x1000</span><br><span class="line">        Error Information Handle: Not Provided</span><br><span class="line">        Total Width: 72 bits</span><br><span class="line">        Data Width: 64 bits</span><br><span class="line">        Size: 8192 MB</span><br><span class="line">        Form Factor: DIMM</span><br><span class="line">        Set: 4</span><br><span class="line">        Locator: DIMM_B4  # slot position on the server</span><br><span class="line">        Bank Locator: Not Specified</span><br><span class="line">        Type: DDR3</span><br><span class="line">        Type Detail: Synchronous Registered (Buffered)</span><br><span class="line">        Speed: 1333 MT/s</span><br><span class="line">        Manufacturer: 002C04B3802C</span><br><span class="line">        Serial Number: E69D04C9</span><br><span class="line">        Asset Tag: 0F132521</span><br><span class="line">        Part Number: 36KSF1G72PZ-1G4M1</span><br><span class="line">        Rank: 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="Check-PCIe-slot-numbers-and-device-types"><a href="#Check-PCIe-slot-numbers-and-device-types" class="headerlink" title="Check PCIe slot numbers and device types"></a>Check PCIe slot numbers and device types</h3><p>Use <code>dmidecode -t slot</code> to confirm the bus address.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">dmidecode -t slot</span><br><span class="line">###</span><br><span class="line">Handle 0x0900, DMI type 9, 17 bytes</span><br><span class="line">System Slot Information</span><br><span class="line">        Designation: PCI1</span><br><span class="line">        Type: x4 PCI Express 2 x8</span><br><span class="line">        Current Usage: In Use</span><br><span class="line">        Length: Long</span><br><span class="line">        ID: 1</span><br><span class="line">        Characteristics:</span><br><span class="line">                3.3 V is provided</span><br><span class="line">                PME signal is supported</span><br><span class="line">        Bus Address: 0000:05:00.0</span><br><span class="line"></span><br><span class="line">Handle 0x0901, DMI type 9, 17 bytes</span><br><span class="line">System Slot Information</span><br><span class="line">        Designation: PCI2</span><br><span class="line">        Type: x4 PCI Express 2 x8</span><br><span class="line">        Current Usage: In Use</span><br><span class="line">        Length: Long</span><br><span class="line">        ID: 2</span><br><span class="line">        Characteristics:</span><br><span class="line">                3.3 V is provided</span><br><span class="line">                PME signal is supported</span><br><span class="line">        Bus Address: 0000:04:00.0</span><br></pre></td></tr></table></figure>
+<p>Use <code>lspci</code> with the bus address to identify the device:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@hydra:~# lspci | grep -E  &quot;04:00|05:00&quot;</span><br><span class="line">###</span><br><span class="line">04:00.0 Ethernet controller: Mellanox Technologies MT26448 [ConnectX EN 10GigE, PCIe 2.0 5GT/s] (rev b0)</span><br><span class="line">05:00.0 RAID bus controller: LSI Logic / Symbios Logic MegaRAID SAS 2108 [Liberator] (rev 05)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><p>Check memory ECC events to determine whether the memory has problems:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;[0-9]&quot; /sys/device/system/edac/mc/mc*/csrow*/ch*_ce_count</span><br></pre></td></tr></table></figure>
+<p>After confirming the channel, use <code>dmidecode</code> to locate the memory slot.</p>
+<h3 id="Enable-console-login-on-Linux"><a href="#Enable-console-login-on-Linux" class="headerlink" title="Enable console login on Linux"></a>Enable console login on Linux</h3><p>Append the following after the initrd&#x2F;linux entry in grub.cfg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console=ttyS0,115200n8</span><br></pre></td></tr></table></figure>
+<p>ttyS0: the first serial port<br>115200: baud rate<br>n: no parity<br>8: 8 data bits</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/07/05/miscellaneous/" data-id="cuidqxcc2X4u8ImilrP1583ee" data-title="Miscellaneous" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/en/2026/07/20/an-incident-recall/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          An Incident Recall
+        
+      </div>
+    </a>
+  
+  
+    <a href="/en/2026/06/27/linux-enable-serial-login/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Enable Serial Login on Linux</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments" class="comment-section">
+  <h3 class="comment-title">Comments</h3>
+  <div id="comment-list"></div>
+  <div class="comment-form-wrap">
+    <h4>Leave a Comment</h4>
+    <form id="comment-form" onsubmit="return submitComment(event)">
+      <input type="text" name="_website" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="comment-field">
+        <input type="text" id="comment-author" name="author" placeholder="Nickname *" maxlength="32" required>
+      </div>
+      <div class="comment-field">
+        <textarea id="comment-content" name="content" placeholder="Say something..." maxlength="1000" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="comment-submit">Submit</button>
+      <span id="comment-msg"></span>
+    </form>
+  </div>
+</section>
+
+<script>
+(function() {
+  var api = 'https://blog.quanxiaoer.me/api/comments';
+  var slug = 'miscellaneous';
+  var lang = 'en';
+
+  var I18N = {
+    zh: {
+      reply: '回复',
+      write_reply: '写下你的回复...',
+      submit_reply: '提交回复',
+      cancel: '取消',
+      empty: '暂无评论，来说两句吧',
+      fill_required: '请填写昵称和内容',
+      submitting: '提交中...',
+      comment_too_frequent: '评论太频繁，请稍后再试',
+      comment_failed: '评论失败，请稍后重试',
+      reply_too_frequent: '回复太频繁，请稍后再试',
+      reply_failed: '回复失败，请稍后重试',
+      network_error: '网络错误，请稍后重试',
+      success: '评论成功'
+    },
+    en: {
+      reply: 'Reply',
+      write_reply: 'Write your reply...',
+      submit_reply: 'Submit',
+      cancel: 'Cancel',
+      empty: 'No comments yet. Be the first to comment.',
+      fill_required: 'Please fill in nickname and content',
+      submitting: 'Submitting...',
+      comment_too_frequent: 'Too many comments, please try again later',
+      comment_failed: 'Failed to post comment, please try again later',
+      reply_too_frequent: 'Too many replies, please try again later',
+      reply_failed: 'Failed to post reply, please try again later',
+      network_error: 'Network error, please try again later',
+      success: 'Comment posted'
+    }
+  };
+  var L = ('en' === 'en') ? I18N.en : I18N.zh;
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  function renderCommentItem(c, replies) {
+    var childReplies = replies[c.id] || [];
+    var html = '<div class="comment-item">'
+      + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(c.author) + '</span>'
+      + '<span class="comment-time">' + escapeHtml(c.created_at) + '</span></div>'
+      + '<div class="comment-body">' + escapeHtml(c.content) + '</div>'
+      + '<div class="comment-actions"><a href="javascript:void(0)" class="comment-reply-btn" data-id="' + c.id + '">' + L.reply + '</a></div>'
+      + '<div class="comment-reply-form" id="reply-form-' + c.id + '" style="display:none">'
+      + '<input type="text" class="reply-author" id="ra-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="32">'
+      + '<textarea class="reply-content" id="rc-' + c.id + '" placeholder="' + L.write_reply + '" maxlength="1000" rows="3"></textarea>'
+      + '<button class="reply-submit" data-parent="' + c.id + '">' + L.submit_reply + '</button>'
+      + '<button class="reply-cancel" data-parent="' + c.id + '">' + L.cancel + '</button>'
+      + '<span class="reply-msg" id="rm-' + c.id + '"></span>'
+      + '</div>'
+      + '</div>';
+
+    childReplies.forEach(function(r) {
+      html += '<div class="comment-item comment-reply">'
+        + '<div class="comment-meta"><span class="comment-author">' + escapeHtml(r.author) + '</span>'
+        + '<span class="comment-reply-to">' + L.reply + '</span>'
+        + '<span class="comment-time">' + escapeHtml(r.created_at) + '</span></div>'
+        + '<div class="comment-body">' + escapeHtml(r.content) + '</div>'
+        + '</div>';
+    });
+
+    return html;
+  }
+
+  function renderComments(comments) {
+    var el = document.getElementById('comment-list');
+    if (!comments || comments.length === 0) {
+      el.innerHTML = '<p class="comment-empty">' + L.empty + '</p>';
+      return;
+    }
+
+    var topLevel = [];
+    var replies = {};
+    comments.forEach(function(c) {
+      if (c.parent_id) {
+        if (!replies[c.parent_id]) replies[c.parent_id] = [];
+        replies[c.parent_id].push(c);
+      } else {
+        topLevel.push(c);
+      }
+    });
+
+    var html = '';
+    topLevel.forEach(function(c) {
+      html += renderCommentItem(c, replies);
+    });
+    el.innerHTML = html;
+  }
+
+  function loadComments() {
+    fetch(api + '?post_id=' + encodeURIComponent(slug) + '&lang=' + lang)
+      .then(function(r) { return r.json(); })
+      .then(function(d) { renderComments(d.comments); })
+      .catch(function() {});
+  }
+
+  loadComments();
+
+  document.getElementById('comment-list').addEventListener('click', function(e) {
+    var target = e.target;
+
+    if (target.classList.contains('comment-reply-btn')) {
+      e.preventDefault();
+      var id = target.getAttribute('data-id');
+      var form = document.getElementById('reply-form-' + id);
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-cancel')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      document.getElementById('reply-form-' + pid).style.display = 'none';
+      return;
+    }
+
+    if (target.classList.contains('reply-submit')) {
+      e.preventDefault();
+      var pid = target.getAttribute('data-parent');
+      var author = document.getElementById('ra-' + pid).value.trim();
+      var content = document.getElementById('rc-' + pid).value.trim();
+      var msgEl = document.getElementById('rm-' + pid);
+
+      if (!author || !content) {
+        msgEl.textContent = L.fill_required;
+        return;
+      }
+
+      msgEl.textContent = L.submitting;
+      var body = 'post_id=' + encodeURIComponent(slug)
+        + '&author=' + encodeURIComponent(author)
+        + '&content=' + encodeURIComponent(content)
+        + '&parent_id=' + encodeURIComponent(pid)
+        + '&lang=' + lang
+        + '&_website=';
+
+      fetch(api, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      }).then(function(r) {
+        if (r.ok) {
+          document.getElementById('reply-form-' + pid).style.display = 'none';
+          document.getElementById('ra-' + pid).value = '';
+          document.getElementById('rc-' + pid).value = '';
+          msgEl.textContent = '';
+          loadComments();
+        } else if (r.status === 429) {
+          msgEl.textContent = L.reply_too_frequent;
+        } else {
+          msgEl.textContent = L.reply_failed;
+        }
+      }).catch(function() {
+        msgEl.textContent = L.network_error;
+      });
+      return;
+    }
+  });
+
+  window.submitComment = function(e) {
+    e.preventDefault();
+    var author = document.getElementById('comment-author').value.trim();
+    var content = document.getElementById('comment-content').value.trim();
+    var msgEl = document.getElementById('comment-msg');
+    if (!author || !content) {
+      msgEl.textContent = L.fill_required;
+      return false;
+    }
+    msgEl.textContent = L.submitting;
+    var body = 'post_id=' + encodeURIComponent(slug)
+      + '&author=' + encodeURIComponent(author)
+      + '&content=' + encodeURIComponent(content)
+      + '&lang=' + lang
+      + '&_website=';
+    fetch(api, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    }).then(function(r) {
+      if (r.ok) {
+        document.getElementById('comment-author').value = '';
+        document.getElementById('comment-content').value = '';
+        msgEl.textContent = L.success;
+        loadComments();
+      } else if (r.status === 429) {
+        msgEl.textContent = L.comment_too_frequent;
+      } else {
+        msgEl.textContent = L.comment_failed;
+      }
+    }).catch(function() {
+      msgEl.textContent = L.network_error;
+    });
+    return false;
+  };
+})();
+</script>
+
+<style>
+.comment-section { margin-top: 40px; padding-top: 30px; border-top: 1px solid #ddd; }
+.comment-title { font-size: 20px; margin-bottom: 20px; }
+.comment-empty { color: #999; font-size: 14px; }
+.comment-item { padding: 12px 0; border-bottom: 1px solid #eee; }
+.comment-meta { margin-bottom: 6px; }
+.comment-author { font-weight: bold; color: #333; margin-right: 12px; }
+.comment-time { color: #999; font-size: 12px; }
+.comment-body { color: #555; font-size: 14px; line-height: 1.6; word-break: break-all; }
+.comment-actions { margin-top: 6px; }
+.comment-reply-btn { color: #258fb8; font-size: 13px; text-decoration: none; cursor: pointer; }
+.comment-reply-btn:hover { text-decoration: underline; }
+.comment-reply { margin-left: 40px; padding-left: 16px; border-left: 3px solid #258fb8; background: #fafafa; }
+.comment-reply .comment-item { border-bottom: none; }
+.comment-reply-to { color: #999; font-size: 12px; margin: 0 8px; }
+.comment-reply-form { margin-top: 10px; padding: 12px; background: #f9f9f9; border-radius: 4px; }
+.comment-reply-form input,
+.comment-reply-form textarea {
+  width: 100%; padding: 6px 8px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 13px; box-sizing: border-box; outline: none; margin-bottom: 8px;
+}
+.comment-reply-form input:focus,
+.comment-reply-form textarea:focus { border-color: #258fb8; }
+.comment-reply-form textarea { resize: vertical; }
+.reply-submit { background: #258fb8; color: #fff; border: none; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; margin-right: 8px; }
+.reply-submit:hover { background: #1e7a9b; }
+.reply-cancel { background: #fff; color: #999; border: 1px solid #ccc; padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; }
+.reply-cancel:hover { color: #555; border-color: #999; }
+.reply-msg { margin-left: 10px; font-size: 13px; color: #999; }
+.comment-form-wrap { margin-top: 24px; }
+.comment-form-wrap h4 { font-size: 16px; margin-bottom: 12px; }
+.comment-field { margin-bottom: 10px; }
+.comment-field input,
+.comment-field textarea {
+  width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 14px; box-sizing: border-box; outline: none;
+}
+.comment-field input:focus,
+.comment-field textarea:focus { border-color: #258fb8; }
+.comment-field textarea { resize: vertical; }
+.comment-submit {
+  background: #258fb8; color: #fff; border: none; padding: 8px 20px;
+  border-radius: 4px; font-size: 14px; cursor: pointer;
+}
+.comment-submit:hover { background: #1e7a9b; }
+#comment-msg { margin-left: 10px; font-size: 14px; color: #999; }
+</style>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/en/categories/Operations/">Operations</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/en/categories/Operations/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/en/categories/Operations/VMware/">VMware</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/en/archives/2026/07/">July 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/en/archives/2026/06/">June 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/en/2026/07/20/an-incident-recall/">An Incident Recall</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/07/05/miscellaneous/">Miscellaneous</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/06/27/linux-enable-serial-login/">Enable Serial Login on Linux</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/06/27/self-signed-ssl-certificate/">Quick Self-Signed SSL Certificate</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/06/24/vmware-esxi-common-commands/">VMware ESXi Common Commands</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="friend-links" class="inner">
+      <h3>Friend Links</h3>
+      <a href="https://blog.topcaver.com/" target="_blank" rel="noopener noreferrer">Topcaver</a>
+      <a href="https://nti.nsfocus.com/" target="_blank" rel="noopener noreferrer">绿盟威胁情报nti</a>
+      <a href="https://www.alimama.com/index.htm" target="_blank" rel="noopener noreferrer">阿里妈妈</a>
+    </div>
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 ZQ wang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/en/" class="mobile-nav-link">Home</a>
+  
+    <a href="/en/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/en/AboutMe" class="mobile-nav-link">About Me</a>
+  
+    <a href="/en/NewApiEdu" class="mobile-nav-link">NewApi</a>
+  
+    <a href="/en/links" class="mobile-nav-link">Links</a>
+  
+    <a href="/en/ideas" class="mobile-nav-link">Ideas</a>
+  
+</nav>
+    
+
+<a id="back-to-top" class="fa fa-chevron-up" title="回到顶部"></a>
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

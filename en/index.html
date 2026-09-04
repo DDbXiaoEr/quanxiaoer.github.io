@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}})();
+  </script>
+  
+  
+  <title>泉的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="泉的blog">
+<meta property="og:url" content="http://blog.quanxiaoer.me/en/index.html">
+<meta property="og:site_name" content="泉的blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="ZQ wang">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="泉的blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/en/" id="logo">泉的blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/en/">Home</a>
+        
+          <a class="main-nav-link" href="/en/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/en/AboutMe">About Me</a>
+        
+          <a class="main-nav-link" href="/en/NewApiEdu">NewApi</a>
+        
+          <a class="main-nav-link" href="/en/links">Links</a>
+        
+          <a class="main-nav-link" href="/en/ideas">Ideas</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a id="theme-toggle" class="nav-icon" title="切换主题"><span class="fa fa-moon-o"></span></a>
+        <a id="lang-switch" class="nav-icon" href="/" title="切换为中文"><span class="lang-switch-text">中文</span></a>
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.quanxiaoer.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-an-incident-recall" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/07/20/an-incident-recall/" class="article-date">
+  <time class="dt-published" datetime="2026-07-20T09:09:29.000Z" itemprop="datePublished">2026-07-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/en/2026/07/20/an-incident-recall/">An Incident Recall</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>While browsing my phone’s photo album in the afternoon, I found a picture:<br><img src="/images/17199.JPG" alt="Malicious website status"></p>
+<p>I couldn’t recall what happened that day. I forgot what I was doing at the network center all night — maybe a course project, maybe a minor upgrade of the IDP server deployed at school. I can’t remember how I found out I had been blacklisted. At first I thought my IDP server had been hacked and had a webshell planted on it, so I checked everything and dug through the whole server without finding anything suspicious, then filed an appeal. The response said a website under another domain of the school had malicious content — an administrative business website. I opened it and pressed F12: there was a long chunk of VBScript that wrote a piece of data in binary.</p>
+<p>So I grabbed it. Why wasn’t I afraid of getting infected? Because in my junior and senior years my computer ran Linux. Why Linux? I was learning Linux programming and CUDA at the time. Under Linux, NVIDIA provided nsight, plus the CUDA C IDE: Nsight Eclipse Edition, for developing and debugging programs on the GPU. My poor 860M only had 2GB of VRAM, and it was even used to train models for my graduation project…</p>
+<p>I used <code>echo</code> + <code>xxd</code> to extract the malicious data payload. The command was roughly:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 48656C6C6F | xxd -r -ps &gt; data.bin<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Then I threw it into a cloud sandbox to check — it was a worm virus. The next day I reported it to the teacher to handle, then filed the appeal again and got it removed successfully.</p>
+<p><img src="/images/209.PNG" alt="Appeal successful"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/07/20/an-incident-recall/" data-id="cuidccieHBVxEWe3ZeMieT_xM" data-title="An Incident Recall" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-miscellaneous" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/07/05/miscellaneous/" class="article-date">
+  <time class="dt-published" datetime="2026-07-04T16:00:00.000Z" itemprop="datePublished">2026-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/en/2026/07/05/miscellaneous/">Miscellaneous</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="dmidecode"><a href="#dmidecode" class="headerlink" title="dmidecode"></a>dmidecode</h2><p>Check the system hardware architecture (if it is a VM, it shows the VM type: VMware or another platform).<br>On non-VMware systems (VMware can be identified by the NIC MAC), it can be used to tell whether the system is physical or virtual.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># dmidecode -s system-manufacturer</span><br><span class="line">VMware, Inc.</span><br></pre></td></tr></table></figure>
+<p>Check memory DIMM info:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># dmidecode -t memory</span><br><span class="line">Memory Device</span><br><span class="line">        Array Handle: 0x1000</span><br><span class="line">        Error Information Handle: Not Provided</span><br><span class="line">        Total Width: 72 bits</span><br><span class="line">        Data Width: 64 bits</span><br><span class="line">        Size: 8192 MB</span><br><span class="line">        Form Factor: DIMM</span><br><span class="line">        Set: 4</span><br><span class="line">        Locator: DIMM_B4  # slot position on the server</span><br><span class="line">        Bank Locator: Not Specified</span><br><span class="line">        Type: DDR3</span><br><span class="line">        Type Detail: Synchronous Registered (Buffered)</span><br><span class="line">        Speed: 1333 MT/s</span><br><span class="line">        Manufacturer: 002C04B3802C</span><br><span class="line">        Serial Number: E69D04C9</span><br><span class="line">        Asset Tag: 0F132521</span><br><span class="line">        Part Number: 36KSF1G72PZ-1G4M1</span><br><span class="line">        Rank: 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="Check-PCIe-slot-numbers-and-device-types"><a href="#Check-PCIe-slot-numbers-and-device-types" class="headerlink" title="Check PCIe slot numbers and device types"></a>Check PCIe slot numbers and device types</h3><p>Use <code>dmidecode -t slot</code> to confirm the bus address.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">dmidecode -t slot</span><br><span class="line">###</span><br><span class="line">Handle 0x0900, DMI type 9, 17 bytes</span><br><span class="line">System Slot Information</span><br><span class="line">        Designation: PCI1</span><br><span class="line">        Type: x4 PCI Express 2 x8</span><br><span class="line">        Current Usage: In Use</span><br><span class="line">        Length: Long</span><br><span class="line">        ID: 1</span><br><span class="line">        Characteristics:</span><br><span class="line">                3.3 V is provided</span><br><span class="line">                PME signal is supported</span><br><span class="line">        Bus Address: 0000:05:00.0</span><br><span class="line"></span><br><span class="line">Handle 0x0901, DMI type 9, 17 bytes</span><br><span class="line">System Slot Information</span><br><span class="line">        Designation: PCI2</span><br><span class="line">        Type: x4 PCI Express 2 x8</span><br><span class="line">        Current Usage: In Use</span><br><span class="line">        Length: Long</span><br><span class="line">        ID: 2</span><br><span class="line">        Characteristics:</span><br><span class="line">                3.3 V is provided</span><br><span class="line">                PME signal is supported</span><br><span class="line">        Bus Address: 0000:04:00.0</span><br></pre></td></tr></table></figure>
+<p>Use <code>lspci</code> with the bus address to identify the device:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@hydra:~# lspci | grep -E  &quot;04:00|05:00&quot;</span><br><span class="line">###</span><br><span class="line">04:00.0 Ethernet controller: Mellanox Technologies MT26448 [ConnectX EN 10GigE, PCIe 2.0 5GT/s] (rev b0)</span><br><span class="line">05:00.0 RAID bus controller: LSI Logic / Symbios Logic MegaRAID SAS 2108 [Liberator] (rev 05)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><p>Check memory ECC events to determine whether the memory has problems:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;[0-9]&quot; /sys/device/system/edac/mc/mc*/csrow*/ch*_ce_count</span><br></pre></td></tr></table></figure>
+<p>After confirming the channel, use <code>dmidecode</code> to locate the memory slot.</p>
+<h3 id="Enable-console-login-on-Linux"><a href="#Enable-console-login-on-Linux" class="headerlink" title="Enable console login on Linux"></a>Enable console login on Linux</h3><p>Append the following after the initrd&#x2F;linux entry in grub.cfg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console=ttyS0,115200n8</span><br></pre></td></tr></table></figure>
+<p>ttyS0: the first serial port<br>115200: baud rate<br>n: no parity<br>8: 8 data bits</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/07/05/miscellaneous/" data-id="cuidqxcc2X4u8ImilrP1583ee" data-title="Miscellaneous" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-linux-enable-serial-login" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/06/27/linux-enable-serial-login/" class="article-date">
+  <time class="dt-published" datetime="2026-06-26T16:00:00.000Z" itemprop="datePublished">2026-06-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/en/2026/06/27/linux-enable-serial-login/">Enable Serial Login on Linux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>First of all, the system was installed on a VM that directly passes through the physical disk.</p>
+<h2 id="Enable-Console-Login-on-CentOS"><a href="#Enable-Console-Login-on-CentOS" class="headerlink" title="Enable Console Login on CentOS"></a>Enable Console Login on CentOS</h2><p>Edit <code>/etc/default/grub</code> and add the following configuration:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GRUB_TERMINAL=&quot;console serial&quot;</span><br><span class="line">GRUB_SERIAL_COMMAND=&quot;serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;console=tty1 console=ttyS0,115200&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>115200 is the baud rate commonly used by NSFOCUS devices; adjust it according to your environment.</p>
+</blockquote>
+<p>Then go to <code>/boot/grub2</code> and run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Backup</span></span><br><span class="line"><span class="built_in">cp</span> grub.cfg grub.cfg.bk</span><br><span class="line"></span><br><span class="line"><span class="comment"># Update the grub configuration</span></span><br><span class="line">grub2-mkconfig -o grub.cfg</span><br></pre></td></tr></table></figure>
+
+<h2 id="Enable-Console-on-Ubuntu"><a href="#Enable-Console-on-Ubuntu" class="headerlink" title="Enable Console on Ubuntu"></a>Enable Console on Ubuntu</h2><p>Make sure <code>/etc/default/grub</code> contains the following configuration:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;console=tty0 console=ttyS0,115200n8&quot;</span><br><span class="line">GRUB_TERMINAL=&quot;console serial&quot;</span><br><span class="line">GRUB_SERIAL_COMMAND=&quot;serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Update grub:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">update-grub</span><br><span class="line"></span><br><span class="line"><span class="comment"># Or</span></span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<h2 id="Common-Issues"><a href="#Common-Issues" class="headerlink" title="Common Issues"></a>Common Issues</h2><h3 id="dracut-initqueue-timeout"><a href="#dracut-initqueue-timeout" class="headerlink" title="dracut-initqueue timeout"></a>dracut-initqueue timeout</h3><p>After installing the system on a physical disk inside a VM and moving it to the target machine, boot gets stuck at <code>dracut-initqueue timeout</code>, and <code>ls /dev</code> in the dracut shell can’t find the hard disk.</p>
+<p><strong>Solution:</strong></p>
+<p>On the boot screen, enter the Advanced submenu, choose the rescue entry to boot into the system, then run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dracut -f</span><br></pre></td></tr></table></figure>
+
+<p>This updates the initramfs and fixes the issue.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/06/27/linux-enable-serial-login/" data-id="cuidN90OeiJE8UzQr_r8in6qz" data-title="Enable Serial Login on Linux" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-self-signed-ssl-certificate" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/06/27/self-signed-ssl-certificate/" class="article-date">
+  <time class="dt-published" datetime="2026-06-26T16:00:00.000Z" itemprop="datePublished">2026-06-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/en/2026/06/27/self-signed-ssl-certificate/">Quick Self-Signed SSL Certificate</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Self-signed certificates are enough for test environments. This mainly records two scenarios: single domain and wildcard domain (multiple domains).</p>
+<p>Environment: OpenSSL 3.0+</p>
+<h2 id="Single-Domain-Self-Signed"><a href="#Single-Domain-Self-Signed" class="headerlink" title="Single-Domain Self-Signed"></a>Single-Domain Self-Signed</h2><p><code>--nodes</code> means the private key is not encrypted. Generate <code>key</code> + <code>crt</code> in one step:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">execute_date=$(<span class="built_in">date</span> <span class="string">&quot;+%Y-%m-%d_%H-%M-%S&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$#</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;CN\nBJ\nBJ\nLocal\nLocal\nwww.example.com\ntest@localhost\n&quot;</span> \</span><br><span class="line">        | openssl req -new --nodes -x509 -keyout <span class="string">&quot;<span class="variable">$&#123;execute_date&#125;</span>.key&quot;</span> -out <span class="string">&quot;<span class="variable">$&#123;execute_date&#125;</span>.crt&quot;</span> &gt; /dev/null 2&gt;&amp;1</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;CN\nBJ\nBJ\nLocal\nLocal\n<span class="variable">$1</span>\ntest@localhost\n&quot;</span> \</span><br><span class="line">        | openssl req -new --nodes -x509 -keyout <span class="string">&quot;<span class="variable">$&#123;execute_date&#125;</span>.key&quot;</span> -out <span class="string">&quot;<span class="variable">$&#123;execute_date&#125;</span>.crt&quot;</span> &gt; /dev/null 2&gt;&amp;1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$&#123;execute_date&#125;</span>.key\n<span class="variable">$&#123;execute_date&#125;</span>.crt&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Usage:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Default domain www.example.com</span></span><br><span class="line">./generate.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># Custom domain</span></span><br><span class="line">./generate.sh www.test.com</span><br></pre></td></tr></table></figure>
+
+<p>Or run the command directly:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;CN\nBJ\nBJ\nLocal\nLocal\nwww.example.com\ntest@localhost\n&quot;</span> \</span><br><span class="line">    | openssl req -new --nodes -x509 -keyout server.key -out server.crt &gt; /dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+<h2 id="Wildcard-Self-Signed"><a href="#Wildcard-Self-Signed" class="headerlink" title="Wildcard Self-Signed"></a>Wildcard Self-Signed</h2><p>You need a config file <code>openssl.cnf</code>:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[req]</span></span><br><span class="line"><span class="attr">distinguished_name</span> = req_distinguished_name</span><br><span class="line"><span class="attr">req_extensions</span> = v3_req</span><br><span class="line"></span><br><span class="line"><span class="section">[req_distinguished_name]</span></span><br><span class="line"><span class="attr">countryName</span> = CN</span><br><span class="line"><span class="attr">countryName_default</span> = CN</span><br><span class="line"><span class="attr">stateOrProvinceName</span> = BJ</span><br><span class="line"><span class="attr">stateOrProvinceName_default</span> = BJ</span><br><span class="line"><span class="attr">localityName</span> = WZQ</span><br><span class="line"><span class="attr">localityName_default</span> = WZQ</span><br><span class="line"><span class="attr">organizationalUnitName</span> = WXQ</span><br><span class="line"><span class="attr">organizationalUnitName</span> = WXQ</span><br><span class="line"><span class="attr">commonName</span> = *.DOMAIN.COM</span><br><span class="line"><span class="attr">commonName_max</span> = <span class="number">64</span></span><br><span class="line"></span><br><span class="line"><span class="section">[v3_req]</span></span><br><span class="line"><span class="attr">basicConstraints</span> = CA:<span class="literal">FALSE</span></span><br><span class="line"><span class="attr">keyUsage</span> = nonRepudiation,digitalSignature,keyEncipherment</span><br><span class="line"><span class="attr">subjectAltName</span> = @alt_names</span><br><span class="line"></span><br><span class="line"><span class="section">[alt_names]</span></span><br><span class="line"><span class="attr">DNS.1</span> = DOMAIN.COM</span><br><span class="line"><span class="attr">DNS.2</span> = *.DOMAIN.COM</span><br></pre></td></tr></table></figure>
+
+<p>Generate the certificate:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 2048</span><br><span class="line">openssl req -new -out server.csr -key server.key -config openssl.cnf</span><br><span class="line">openssl x509 -req -days 3650 -<span class="keyword">in</span> server.csr -signkey server.key -out server.crt -extensions v3_req -extfile openssl.cnf</span><br></pre></td></tr></table></figure>
+
+<p>Batch script <code>generate.sh</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line"><span class="built_in">declare</span> domain</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$#</span> -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">    domain=<span class="string">&quot;example.com&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    domain=<span class="variable">$1</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">sed -e <span class="string">&quot;s/DOMAIN.COM/<span class="variable">$domain</span>/g&quot;</span> openssl_template.cnf &gt; openssl.cnf</span><br><span class="line">openssl genrsa -out server.key 2048</span><br><span class="line">openssl req -new -out server.csr -key server.key -config openssl.cnf</span><br><span class="line">openssl x509 -req -days 3650 -<span class="keyword">in</span> server.csr -signkey server.key -out server.crt -extensions v3_req -extfile openssl.cnf</span><br><span class="line"><span class="built_in">rm</span> -rf openssl.cnf</span><br></pre></td></tr></table></figure>
+
+<p>Usage:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Default example.com</span></span><br><span class="line">./generate.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># Custom wildcard domain</span></span><br><span class="line">./generate.sh test.com</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/06/27/self-signed-ssl-certificate/" data-id="cuideQxeAQuPzgbEmtijrHvLy" data-title="Quick Self-Signed SSL Certificate" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-vmware-esxi-common-commands" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/06/24/vmware-esxi-common-commands/" class="article-date">
+  <time class="dt-published" datetime="2026-06-24T09:30:00.000Z" itemprop="datePublished">2026-06-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/VMware/">VMware</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/en/2026/06/24/vmware-esxi-common-commands/">VMware ESXi Common Commands</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Virtual-Machines"><a href="#Virtual-Machines" class="headerlink" title="Virtual Machines"></a>Virtual Machines</h2><p>List running virtual machines (<code>esxcli vm process list</code> shows the World ID of each VM, handy for later targeted operations):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">esxcli vm process list</span><br><span class="line">vim-cmd vmsvc/getallvms</span><br></pre></td></tr></table></figure>
+
+<h2 id="Firewall"><a href="#Firewall" class="headerlink" title="Firewall"></a>Firewall</h2><p>Check the status:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network firewall get</span><br></pre></td></tr></table></figure>
+
+<p>Enable:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network firewall set --enabled true</span><br></pre></td></tr></table></figure>
+
+<p>Disable:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network firewall set --enabled false</span><br></pre></td></tr></table></figure>
+
+<h2 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h2><h3 id="Mount-an-existing-VMFS-datastore"><a href="#Mount-an-existing-VMFS-datastore" class="headerlink" title="Mount an existing VMFS datastore"></a>Mount an existing VMFS datastore</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">esxcfg-volume -l</span><br><span class="line"># Example output: VMFS UUID/label 5dee105a-f101f5ba-5e6a-08f1eaf7169e/datastore1</span><br><span class="line">esxcfg-volume -m &lt;UUID&gt;</span><br><span class="line"># This mounts it, and you can rename it</span><br></pre></td></tr></table></figure>
+
+<h3 id="Passthrough-a-physical-disk-to-a-VM"><a href="#Passthrough-a-physical-disk-to-a-VM" class="headerlink" title="Passthrough a physical disk to a VM"></a>Passthrough a physical disk to a VM</h3><ol>
+<li>Get the disk name from the UI or with this command:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli storage core device list</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Create a mapped vmdk on the storage path:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmkfstools -z /vmfs/devices/disks/&lt;disk name&gt; &lt;mapped path&gt;/&lt;mapped name&gt;.vmdk</span><br></pre></td></tr></table></figure>
+
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><h3 id="iDRAC"><a href="#iDRAC" class="headerlink" title="iDRAC"></a>iDRAC</h3><p>Get the iDRAC address of a Dell server running ESXi while it is powered on:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">localcli hardware ipmi bmc get</span><br><span class="line"># Example output</span><br><span class="line"># IpmiBmcConfig:</span><br><span class="line">#    BMC Firmware Version: 2.50</span><br><span class="line">#    Hostname Reported: W I N - G N T P T 2 8 B R B B</span><br><span class="line">#    IPMI Version: 2.0</span><br><span class="line">#    IPv4 Address: 192.168.0.138</span><br><span class="line">#    IPv4 Gateway: 192.168.0.1</span><br><span class="line">#    IPv4 Subnet: 255.255.255.0</span><br><span class="line">#    IPv6 Addresses:</span><br><span class="line">#    LAN ifAdminStatus: true</span><br><span class="line">#    MAC Address: 18:fb:7b:98:c3:1c</span><br><span class="line">#    Manufacturer: Dell Inc.</span><br><span class="line">#    OS Name Reported: VMware ESXi 7.0.0 15843807</span><br></pre></td></tr></table></figure>
+
+<p>Some ESXi builds don’t have the <code>bmc</code> namespace; you can install the ipmitool VIB:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Change the ESXi acceptance level</span><br><span class="line">esxcli software acceptance set --level=CommunitySupported</span><br><span class="line"># Download from https://vswitchzero.com/ipmitool-vib/</span><br><span class="line">esxcli software vib install -v ipmitool-1.8.11-2.x86_64.vib</span><br></pre></td></tr></table></figure>
+
+<h3 id="Coredump"><a href="#Coredump" class="headerlink" title="Coredump"></a>Coredump</h3><p>Enable:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli system coredump file set -e true</span><br></pre></td></tr></table></figure>
+
+<p>Disable:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli system coredump file set -e false</span><br></pre></td></tr></table></figure>
+
+<p>Check:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli system coredump file list</span><br></pre></td></tr></table></figure>
+
+<h3 id="Server-Hardware-Info"><a href="#Server-Hardware-Info" class="headerlink" title="Server Hardware Info"></a>Server Hardware Info</h3><p>Check hardware info such as memory and CPU provided by BIOS:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smbiosDump</span><br></pre></td></tr></table></figure>
+
+<p>Get host hardware information:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli hardware [cpu|ipmi|smartcard|usb|bootdevice|clock|memory|pci|platform|trustedboot]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>cpu:</strong> CPU info</li>
+<li><strong>ipmi:</strong> IPMI info</li>
+<li><strong>smartcard:</strong> Smart card subsystem</li>
+<li><strong>usb:</strong> VMware USB plugin</li>
+<li><strong>bootdevice:</strong> Boot device info</li>
+<li><strong>clock:</strong> Hardware clock interaction</li>
+<li><strong>memory:</strong> Memory info</li>
+<li><strong>pci:</strong> PCI device info and configuration</li>
+<li><strong>platform:</strong> Platform info</li>
+<li><strong>trustedboot:</strong> Trusted Boot status</li>
+</ul>
+<h2 id="Monitoring"><a href="#Monitoring" class="headerlink" title="Monitoring"></a>Monitoring</h2><h3 id="esxtop"><a href="#esxtop" class="headerlink" title="esxtop"></a>esxtop</h3><p>Similar to Linux <code>top</code>. Hotkeys:</p>
+<ul>
+<li>C (CPU)</li>
+<li>I (interrupt)</li>
+<li>M (memory)</li>
+<li>N (network)</li>
+<li>D (disk adapter)</li>
+<li>U (disk device)</li>
+<li>V (virtual disk)</li>
+<li>P (power mgmt)</li>
+</ul>
+<h2 id="Packet-Capture"><a href="#Packet-Capture" class="headerlink" title="Packet Capture"></a>Packet Capture</h2><h3 id="List-VMK-NICs"><a href="#List-VMK-NICs" class="headerlink" title="List VMK NICs"></a>List VMK NICs</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network ip interface list</span><br></pre></td></tr></table></figure>
+<p>Example output:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vmk0</span><br><span class="line">   Name: vmk0</span><br><span class="line">   MAC Address: ff:ff:ff:ff:ff:ff</span><br><span class="line">   Enabled: true</span><br><span class="line">   Portset: vSwitch0</span><br><span class="line">   Portgroup: Management Network</span><br><span class="line">   Netstack Instance: defaultTcpipStack</span><br><span class="line">   VDS Name: N/A</span><br><span class="line">   VDS UUID: N/A</span><br><span class="line">   VDS Port: N/A</span><br><span class="line">   VDS Connection: -1</span><br><span class="line">   Opaque Network ID: N/A</span><br><span class="line">   Opaque Network Type: N/A</span><br><span class="line">   External ID: N/A</span><br><span class="line">   MTU: 1500</span><br><span class="line">   TSO MSS: 65535</span><br><span class="line">   Port ID: 33554436</span><br></pre></td></tr></table></figure>
+
+<h3 id="List-physical-NICs"><a href="#List-physical-NICs" class="headerlink" title="List physical NICs"></a>List physical NICs</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcli network nic list</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>PCI Device</th>
+<th>Driver</th>
+<th>Admin Status</th>
+<th>Link Status</th>
+<th>Speed</th>
+<th>Duplex</th>
+<th>MAC Address</th>
+<th>MTU</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vmnic0</td>
+<td>0000:84:00.0</td>
+<td>ixgbe</td>
+<td>Up</td>
+<td>Up</td>
+<td>10000</td>
+<td>Full</td>
+<td>00:8c:fa:55:56:34</td>
+<td>1500</td>
+<td>Intel Corporation 82599EN 10 Gigabit Network Connection</td>
+</tr>
+<tr>
+<td>vmnic1</td>
+<td>0000:06:00.0</td>
+<td>igb</td>
+<td>Up</td>
+<td>Down</td>
+<td>0</td>
+<td>Half</td>
+<td>00:19:99:97:86:19</td>
+<td>1500</td>
+<td>Intel Corporation 82576NS Gigabit Network Connection</td>
+</tr>
+<tr>
+<td>vmnic2</td>
+<td>0000:06:00.1</td>
+<td>igb</td>
+<td>Up</td>
+<td>Down</td>
+<td>0</td>
+<td>Half</td>
+<td>00:19:99:97:86:18</td>
+<td>1500</td>
+<td>Intel Corporation 82576NS Gigabit Network Connection</td>
+</tr>
+</tbody></table>
+<h3 id="List-VM-port-numbers"><a href="#List-VM-port-numbers" class="headerlink" title="List VM port numbers"></a>List VM port numbers</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net-stats -l</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>PortNum</th>
+<th>Type</th>
+<th>SubType</th>
+<th>SwitchName</th>
+<th>MACAddress</th>
+<th>ClientName</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>33554434</td>
+<td>4</td>
+<td>0</td>
+<td>vSwitch0</td>
+<td>ff:ff:ff:ff:ff:ff</td>
+<td>vm-xxxxx</td>
+</tr>
+<tr>
+<td>33554436</td>
+<td>3</td>
+<td>0</td>
+<td>vSwitch0</td>
+<td>ff:ff:ff:ff:ff:ff</td>
+<td>vm-xxxxx</td>
+</tr>
+<tr>
+<td>33554437</td>
+<td>5</td>
+<td>7</td>
+<td>vSwitch0</td>
+<td>ff:ff:ff:ff:ff:ff</td>
+<td>vm-xxxxx</td>
+</tr>
+</tbody></table>
+<h3 id="Capture-ESXi-NIC-traffic"><a href="#Capture-ESXi-NIC-traffic" class="headerlink" title="Capture ESXi NIC traffic"></a>Capture ESXi NIC traffic</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump-uw -i vmk0</span><br></pre></td></tr></table></figure>
+
+<h3 id="Capture-ESXi-VM-traffic"><a href="#Capture-ESXi-VM-traffic" class="headerlink" title="Capture ESXi VM traffic"></a>Capture ESXi VM traffic</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pktcap-uw --switchport 33554437 --dir 0 --dstip 10.24.20.95 -o ICP_LIB.pcap</span><br></pre></td></tr></table></figure>
+<p><code>--dir</code> argument: <code>0</code> for VM egress (VM -&gt; OVS), <code>1</code> for VM ingress (OVS -&gt; VM)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/06/24/vmware-esxi-common-commands/" data-id="cuidBGHL2dNyfbhpWP_nf8K2a" data-title="VMware ESXi Common Commands" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-kvm-shared-directory" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/06/24/kvm-shared-directory/" class="article-date">
+  <time class="dt-published" datetime="2026-06-24T09:10:00.000Z" itemprop="datePublished">2026-06-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/en/2026/06/24/kvm-shared-directory/">KVM Shared Directory</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>KVM shared directory</p>
+<h1 id="Host-OS"><a href="#Host-OS" class="headerlink" title="Host OS"></a>Host OS</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;filesystem type=&#x27;mount&#x27; accessmode=&#x27;mapped&#x27;&gt;</span><br><span class="line">    &lt;source dir=&#x27;/tmp/shared&#x27;/&gt;</span><br><span class="line">    &lt;target dir=&#x27;tag&#x27;/&gt;</span><br><span class="line">&lt;/filesystem&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Guest-OS"><a href="#Guest-OS" class="headerlink" title="Guest OS"></a>Guest OS</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t 9p -o trans=virtio,version=9p2000.L tag /mnt/shared/</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/06/24/kvm-shared-directory/" data-id="cuidnZrrYdmXv1cLuPP3wVOyo" data-title="KVM Shared Directory" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-kylinos-kvm-aarch64-create-uefi-vm" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/06/24/kylinos-kvm-aarch64-create-uefi-vm/" class="article-date">
+  <time class="dt-published" datetime="2026-06-24T09:05:00.000Z" itemprop="datePublished">2026-06-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/en/2026/06/24/kylinos-kvm-aarch64-create-uefi-vm/">Kylinos KVM aarch64 Create UEFI VM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Kylinos-KVM-aarch64-Create-UEFI-VM"><a href="#Kylinos-KVM-aarch64-Create-UEFI-VM" class="headerlink" title="Kylinos KVM aarch64 Create UEFI VM"></a>Kylinos KVM aarch64 Create UEFI VM</h1><h2 id="Check-System-Environment"><a href="#Check-System-Environment" class="headerlink" title="Check System Environment"></a>Check System Environment</h2><p>Check whether the system supports virtualization:</p>
+<ol>
+<li>List devices</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /dev/ | grep kvm</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-Packages"><a href="#Install-Packages" class="headerlink" title="Install Packages"></a>Install Packages</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Install virtualization packages</span></span><br><span class="line">yum install qemu libvirt virt-install virt-viewer bridge-utils</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">KVM UEFI support</span></span><br><span class="line">yum install edk2-aarch64 edk2-ovmf</span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-a-Bridged-Network"><a href="#Create-a-Bridged-Network" class="headerlink" title="Create a Bridged Network"></a>Create a Bridged Network</h2><ol>
+<li>Create the bridge interface<br>You can use nmtui or nmcli to create it. Disable IPv4 and IPv6 init.</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># /etc/sysconfig/network-scripts/ifcfg-&lt;bridge-name&gt;</span><br><span class="line">STP=no</span><br><span class="line">BRIDGING_OPTS=multicast_snooping=0</span><br><span class="line">TYPE=Bridge</span><br><span class="line">PROXY_METHOD=none</span><br><span class="line">BROWSER_ONLY=no</span><br><span class="line">IPV6INIT=no</span><br><span class="line">NAME=&lt;bridge-name&gt;</span><br><span class="line">DEVICE=&lt;birdge-name&gt;</span><br><span class="line">ONBOOT=yes</span><br><span class="line"># Bind the physical NIC</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">NAME=enp125s0f3</span><br><span class="line">BRIDGE=&lt;bridge-name&gt;</span><br><span class="line">ONBOOT=yes</span><br><span class="line">DEVICE=enp125s0f3</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Create the virtual network</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">network</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>bridge-network<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">forward</span> <span class="attr">mode</span>=<span class="string">&quot;bridge&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bridge</span> <span class="attr">name</span>=<span class="string">&quot;&lt;bridge-name&gt;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">network</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Create and activate the network</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">virsh net-define --file bridge-network.xml</span><br><span class="line">virsh net-autostart --network bridge-network</span><br><span class="line">virsh net-start bridge-network</span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-the-UEFI-VM"><a href="#Create-the-UEFI-VM" class="headerlink" title="Create the UEFI VM"></a>Create the UEFI VM</h2><ul>
+<li>Query supported guest OS information</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">osinfo-query -os</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Output</span></span><br><span class="line">Short ID             | Name                                               | Version  | ID</span><br><span class="line">----------------------+----------------------------------------------------+----------+-----------------------------------------</span><br><span class="line"> alpinelinux3.5       | Alpine Linux 3.5                                   | 3.5      | http://alpinelinux.org/alpinelinux/3.5</span><br><span class="line"> kylin10.0            | Kylin 10                                           | 10.0     | http://www.kylinos.cn/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Create the VM</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virt-install --virt-type kvm --name &lt;vm_name&gt; --os-variant kylin10.0 --boot uefi --ram 98304 --vcpus 48 --cdrom=/opt/iso/Kylin-Server-10-SP1-Release-Build20-20210518-arm64.iso  --disk path=/opt/vm_disk/&lt;vm_disk&gt;.qcow2 --network network=bridge-network --graphics vnc,listen=0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="Connect-to-the-VM"><a href="#Connect-to-the-VM" class="headerlink" title="Connect to the VM"></a>Connect to the VM</h2><p>Use a VNC client: <code>&lt;host IP&gt;:5900</code></p>
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p>Passthrough a physical disk (using sdb as an example)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">disk</span> <span class="attr">type</span>=<span class="string">&#x27;block&#x27;</span> <span class="attr">device</span>=<span class="string">&#x27;disk&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">driver</span> <span class="attr">name</span>=<span class="string">&#x27;qemu&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;raw&#x27;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">dev</span>=<span class="string">&#x27;/dev/sdb&#x27;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">target</span> <span class="attr">dev</span>=<span class="string">&#x27;vdb&#x27;</span> <span class="attr">bus</span>=<span class="string">&#x27;virtio&#x27;</span>/&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- bus is not necessarily virtio, IDE or SCSI also work --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">disk</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Add VNC</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">graphics</span> <span class="attr">type</span>=<span class="string">&quot;vnc&quot;</span> <span class="attr">autoport</span>=<span class="string">&quot;yes&quot;</span> <span class="attr">keymap</span>=<span class="string">&quot;en-us&quot;</span> <span class="attr">listen</span>=<span class="string">&quot;0.0.0.0&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/06/24/kylinos-kvm-aarch64-create-uefi-vm/" data-id="cuidaA5drFIjuuFUJ33HNGgtj" data-title="Kylinos KVM aarch64 Create UEFI VM" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-ntip-customer-maxstack-verification" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/en/2026/06/24/ntip-customer-maxstack-verification/" class="article-date">
+  <time class="dt-published" datetime="2026-06-24T09:00:00.000Z" itemprop="datePublished">2026-06-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/en/categories/Operations/">Operations</a>►<a class="article-category-link" href="/en/categories/Operations/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/en/2026/06/24/ntip-customer-maxstack-verification/">MaxStack Verification in NTIP Customer Environment</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h1><p>The upgrade failed at the customer site. The failing step was calling <code>decrypt</code> to unpack the upgrade package.<br>It runs fine in the company environment, but segfaults in the customer environment.</p>
+<h1 id="1-How-It-Was-Found"><a href="#1-How-It-Was-Found" class="headerlink" title="1 How It Was Found"></a>1 How It Was Found</h1><p>Since there was no source code for <code>decrypt</code>, I checked the binary — the symbol table was not stripped, so I loaded it into IDA. The original plan was just to set breakpoints based on the call stack.<br><img src="/images/breakpoint_list.png" alt="Breakpoint list"><br>IDA reported an error in the <code>verify_encrypted_packet_sha256</code> function:<br>stack frame too big<br><img src="/images/ida_stackframe_toobig.png" alt="IDA error"><br>I immediately realized it was a stack limit issue — intuition, I guess.</p>
+<h1 id="2-Verification"><a href="#2-Verification" class="headerlink" title="2 Verification"></a>2 Verification</h1><h2 id="Normal-execution-company-environment"><a href="#Normal-execution-company-environment" class="headerlink" title="Normal execution (company environment)"></a>Normal execution (company environment)</h2><p><code>ulimit</code> info</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ulimit -s</span><br><span class="line">8192 (unit: kbytes)</span><br></pre></td></tr></table></figure>
+<h2 id="Customer-environment-known-to-be-2M"><a href="#Customer-environment-known-to-be-2M" class="headerlink" title="Customer environment (known to be 2M)"></a>Customer environment (known to be 2M)</h2><p>Run to find the function where the crash happens</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># Adjust the current process limit. (takes effect immediately)</span><br><span class="line">╭─ddbxiaoer@bogon /proc/282240</span><br><span class="line">╰─$ grep stack limits</span><br><span class="line">Max stack size            8388608              unlimited            bytes</span><br><span class="line">╭─ddbxiaoer@bogon /proc/282240</span><br><span class="line">╰─$ sudo prlimit -p 282240 --stack=2097152</span><br><span class="line">[sudo] password for ddbxiaoer:</span><br><span class="line">╭─ddbxiaoer@bogon /proc/282240</span><br><span class="line">╰─$ grep stack limits</span><br><span class="line">Max stack size            2097152              2097152              bytes</span><br><span class="line"># Run and hit the error</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line"></span><br><span class="line">Program received signal SIGSEGV, Segmentation fault.</span><br><span class="line">0x0000000000402c51 in file_hash256 ()</span><br><span class="line"></span><br><span class="line">(gdb) bt</span><br><span class="line">#0  0x0000000000402c51 in file_hash256 ()</span><br><span class="line">#1  0x00000000004016f4 in verify_encrypted_packet_sha256 ()</span><br><span class="line">#2  0x0000000000401dee in main ()</span><br></pre></td></tr></table></figure>
+<h2 id="Debugging"><a href="#Debugging" class="headerlink" title="Debugging"></a>Debugging</h2><p>Breakpoints:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; info breakpoints</span><br><span class="line">Num     Type           Disp Enb Address            What</span><br><span class="line">1       breakpoint     keep y   0x00000000004019a2 &lt;main+4&gt;</span><br><span class="line">2       breakpoint     keep y   0x00000000004015bb &lt;verify_encrypted_packet_sha256+4&gt;</span><br><span class="line">3       breakpoint     keep y   0x0000000000402c4a &lt;file_hash256+4&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>main</code> function</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Code</span><br><span class="line"> ► 0x4019a2 &lt;main+4&gt;     push   rbx                           &lt;__libc_csu_fini&gt;</span><br><span class="line">   0x4019a3 &lt;main+5&gt;     sub    rsp, 0x168</span><br></pre></td></tr></table></figure>
+<p><strong>Current stack: 0x168 bytes</strong><br>2. <code>verify_encrypted_packet_sha256</code> function</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Code</span><br><span class="line"> ► 0x4015bb &lt;verify_encrypted_packet_sha256+4&gt;     sub    rsp, 0x100050</span><br></pre></td></tr></table></figure>
+<p><strong>Current stack: 0x168 + 0x100050 bytes</strong></p>
+<ol start="3">
+<li><code>file_hash256</code> function</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Code</span><br><span class="line">► 0x402c4a &lt;file_hash256+4&gt;     sub    rsp, 0x1000a0</span><br><span class="line">   0x402c51 &lt;file_hash256+11&gt;    mov    qword ptr [rbp - 0x100098], rdi</span><br></pre></td></tr></table></figure>
+<p><strong>Current stack: 0x168 + 0x100050 + 0x1000a0 bytes</strong></p>
+<p>Total: 2097752 &gt; 2097152 (1024 * 2048)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.quanxiaoer.me/en/2026/06/24/ntip-customer-maxstack-verification/" data-id="cuidtgwXHzRKJg8HMjRrizmo7" data-title="MaxStack Verification in NTIP Customer Environment" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/en/categories/Operations/">Operations</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/en/categories/Operations/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/en/categories/Operations/VMware/">VMware</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/en/archives/2026/07/">July 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/en/archives/2026/06/">June 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/en/2026/07/20/an-incident-recall/">An Incident Recall</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/07/05/miscellaneous/">Miscellaneous</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/06/27/linux-enable-serial-login/">Enable Serial Login on Linux</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/06/27/self-signed-ssl-certificate/">Quick Self-Signed SSL Certificate</a>
+          </li>
+        
+          <li>
+            <a href="/en/2026/06/24/vmware-esxi-common-commands/">VMware ESXi Common Commands</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="friend-links" class="inner">
+      <h3>Friend Links</h3>
+      <a href="https://blog.topcaver.com/" target="_blank" rel="noopener noreferrer">Topcaver</a>
+      <a href="https://nti.nsfocus.com/" target="_blank" rel="noopener noreferrer">绿盟威胁情报nti</a>
+      <a href="https://www.alimama.com/index.htm" target="_blank" rel="noopener noreferrer">阿里妈妈</a>
+    </div>
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 ZQ wang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/en/" class="mobile-nav-link">Home</a>
+  
+    <a href="/en/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/en/AboutMe" class="mobile-nav-link">About Me</a>
+  
+    <a href="/en/NewApiEdu" class="mobile-nav-link">NewApi</a>
+  
+    <a href="/en/links" class="mobile-nav-link">Links</a>
+  
+    <a href="/en/ideas" class="mobile-nav-link">Ideas</a>
+  
+</nav>
+    
+
+<a id="back-to-top" class="fa fa-chevron-up" title="回到顶部"></a>
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
